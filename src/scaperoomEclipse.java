@@ -444,15 +444,15 @@
 	    public static boolean habitacionC1(){
 	        Scanner sc=new Scanner(System.in);
 	        boolean evento=false;
-	        String movimientoHabitacionA1;
+	        String movimientoHabitacionC1;
 	        System.out.println("Entras a la habitacion, es completamente blanca con una pequeña alcantarilla, no ves nada más. ");
 	        for(int i=0;i<=3;i++){
 	            if(i==0){
 	                System.out.print("¿A donde quieres ir" +
 	                        "\n 1.- Alcantarilla" +
 	                        "\n 2.- Salir\n");
-	                movimientoHabitacionA1=sc.next();
-	                switch (movimientoHabitacionA1){
+	                movimientoHabitacionC1=sc.next();
+	                switch (movimientoHabitacionC1){
 	                    case"1":
 	                        System.out.println("Te acercas a la alcantarilla. En un primer momento no ves nada pero al acercarte más consigues discernir un ojo, te está mirando fijamente." +
 	                                "\n Te apartas rapidisimo para salir cuando te das cuenta que la puerta ha desaparecido, en su lugar hay una palabra escrita en sangre 'CULPABLE'");
@@ -470,8 +470,8 @@
 	                System.out.print("¿A donde quieres ir?" +
 	                        "\n 1.- Alcantarilla" +
 	                        "\n 2.- Salir\n");
-	                movimientoHabitacionA1=sc.next();
-	                switch (movimientoHabitacionA1){
+	                movimientoHabitacionC1=sc.next();
+	                switch (movimientoHabitacionC1){
 	                    case"1":
 	                        System.out.println("Te acercas a la alcantarilla, ves como un liquido rojo esta empezando a subir," +
 	                                "\n encima de él un ojo mirandote fijamente, incluso dirias que ha parpadeado.");
@@ -493,7 +493,7 @@
 	                        "\n 3.- SALIR" +
 	                        "\n 4.- SALIR" +
 	                        "\n 5.- SALIR\n");
-	                movimientoHabitacionA1=sc.next();
+	                movimientoHabitacionC1=sc.next();
 	                System.out.println("Intentas salir, aporreas la pared, buscas si hay algun compartimento oculto pero no, es una pared lisa. La puerta ha desaparecido");
 	                System.out.println("La palabra resuena por tu cabeza, necesitas salir de ahi ya, la habitacion se esta inundando de sangre, y las paredes se llenan mas y mas.");
 	            }
@@ -504,7 +504,7 @@
 	                        "\n 3.- CULPABLE" +
 	                        "\n 4.- CULPABLE" +
 	                        "\n 5.- CULPABLE\n");
-	                movimientoHabitacionA1=sc.next();
+	                movimientoHabitacionC1=sc.next();
 	                System.out.println("No puedes mas, la cabeza te va a estallar. La sangre te empieza a llegar por las rodillas. Piensas que esta todo acabado cuando derrepente ves como vuelve a aparecer la puerta" +
 	                        "\n Con las pocas fuerzas que te quedan vas hacia la puerta y la atraviesas, vuelves a estar en el vestibulo. La puerta se cierra detras tuya y cuando te miras te das cuenta que esta completamente limpio," +
 	                        "\n como si no hubiese pasado nada.'Necesito salir de aqui.YA'");
@@ -765,7 +765,7 @@
 	    }
 	    public static void salirDelJuego(){
 	        //Aqui hago al accion de salir del juego que yo la tomo como que se rinde, por ello pongo un pequeño texto ambiental
-	        System.out.println("Notas como la presion te corroe, no puedes seguir, no quieres seguir, quieres acabar con esto ya, coges tu cuchillo y con todas tus fuerzas te lo clavas en tu gargante, todo se apaga, también el dolor.");
+	        System.out.println("Notas como la presion te corroe, no puedes seguir, no quieres seguir, quieres acabar con esto ya,\n coges tu cuchillo y con todas tus fuerzas te lo clavas en tu gargante, todo se apaga, también el dolor.");
 	        //Aqui utilizo system.exit para cerrar el programa instantaneamente
 	        System.exit(0);
 	    }
@@ -788,12 +788,12 @@
 
 	        //En estos print se explica un poco la historia, los separo en tres para que quede mas claro
 	        System.out.println("Te levantas, la cabeza te duele, te cuesta abrir los ojos porque tienes una luz apuntando directamente hacia ti,\n cuando tus ojos se acostumbran puedes discernir donde estas.\n"
-	        		+ " Lo primero que te das cuenta es que estas atado, concretamente a una cama, tienes correas en tus pies, los brazos los tienes libres.\n La habitacion es bastante espeluznante, aparte de la cama hay una mesa, un tablón y una mesita a tu lado,\n donde puedes ver una especie de carta y un cuchillo.\n Alargando la mano consigues coger el cuchillo y con el cortas las correas.\n Una vez liberado cocges la carta, que dice lo siguiente: \n\n\n");
-	        System.out.println("Buenos días princesa, \n" +
+	        		+ " Lo primero que te das cuenta es que estas atado, concretamente a una cama, tienes correas en tus pies, los brazos los tienes libres.\n La habitacion es bastante espeluznante, aparte de la cama hay una mesa, un tablón y una mesita a tu lado,\n donde puedes ver una especie de carta y un cuchillo.\n Alargando la mano consigues coger el cuchillo y con el cortas las correas.\n Una vez liberado coges la carta, que dice lo siguiente: \n\n\n");
+	        System.out.println("'Buenos días princesa, \n" +
 	                "veo que por fin te has despertado, espero que tu cama haya sido cómoda.\n Te gustará saber que gracias a mis investigaciones he encontrado un virus capaz de aniquilar a la población,\n pero obviamente tenía que probarlo, y vaya que suerte, tenía a un joven apuesto y sano a mi disposición.\n Efectivamente, estás infectado por el, denominado por mi, COVID-20 (no se por qué el COVID-19 tenía copyright).\n Este virus tiene un tiempo de efecto de 2 horas, pero conforme vaya extendiendose por tu cuerpo verás diversos “efectos secundarios” que ya irás descubriendo.\n Pero tengo una buena noticia, ¡PUEDES SALVARTE!, he escondido el antídoto en este edificio, solo tendrás que sortear las dificultades que te he puesto (nada serio, tú tranquilo).\n Bueno, diviértete, BESIS!!!\n" +
 	                "Con cariño, P.S\n" +
-	                "P.D: Deberías fijarte en las letras que son capitales, es el primer paso para salvarte <3\n");
-	        System.out.println("Notas como el sudor empieza a caer por tu piel, tienes una cuenta atrás antes de morir, tienes que encontrar la salida y el antídoto cuanto antes, pero lo primero es salir de esa habitación...¿letras capitales, que querra decir?");
+	                "P.D: Deberías fijarte en las letras que son capitales de esta carta, es el primer paso para salvarte <3'\n\n\n");
+	        System.out.println("Notas como el sudor empieza a caer por tu piel, tienes una cuenta atrás antes de morir, tienes que encontrar la salida y el antídoto cuanto antes,\n pero lo primero es salir de esa habitación...¿letras capitales, que querra decir?");
 
 	        //Aqui ya empezamos la scape room como tal, como empezamos en la habitacion 1C este sera el primer subprograma,
 	        //Luego veremos como en el main se pondran los menus de las plantas, mientras que cada habitacion sera un subprograma
