@@ -704,7 +704,7 @@
 	        return cizalla;
 	    }
 	    public static void menuEstadoPersonaje( int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla){
-	        //Este es el subprograma del menu del personaje, donde podremos elegir si queremos vver nuestra salud/cordura, nuestros movimientos restantes o nuestros objetos
+	        //Este es el subprograma del menu del personaje, donde podremos elegir si queremos ver nuestra salud/cordura, nuestros movimientos restantes o nuestros objetos
 	        Scanner sc=new Scanner(System.in);
 	        boolean continuarMenu;
 	        String eleccionMenu;
@@ -735,8 +735,8 @@
 	                default:
 	                    continuarMenu=false;
 	                    break;
-	            }}while(continuarMenu);
-
+	            }
+	      }while(continuarMenu);
 	    }
 	    public static void inventario(boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla){
 	        //Aqui pongo todos los objetos, al ser booleans seran true si el protagonista los tiene y falso si no los tiene
@@ -787,9 +787,10 @@
 	        String movimientoPrimeraPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "";
 
 	        //En estos print se explica un poco la historia, los separo en tres para que quede mas claro
-	        System.out.println("Te levantas, la cabeza te duele, te cuesta abrir los ojos porque tienes una luz apuntando directamente hacia ti,\n cuando tus ojos se acostumbran puedes discernir donde estas. Lo primero que te das cuenta es que estas atado, concretamente a una cama, tienes correas en tus pies, los brazos los tienes libres.\n La habitacion es bastante espeluznante, aparte de la cama hay una mesa, un tablón y una mesita a tu lado donde puedes ver una especie de carta y un cuchillo.\n Alargandote consigues coger el cuchillo y con el cortas las correas. Una vez liberado cocges la carta, que dice lo siguiente: ");
+	        System.out.println("Te levantas, la cabeza te duele, te cuesta abrir los ojos porque tienes una luz apuntando directamente hacia ti,\n cuando tus ojos se acostumbran puedes discernir donde estas.\n"
+	        		+ " Lo primero que te das cuenta es que estas atado, concretamente a una cama, tienes correas en tus pies, los brazos los tienes libres.\n La habitacion es bastante espeluznante, aparte de la cama hay una mesa, un tablón y una mesita a tu lado,\n donde puedes ver una especie de carta y un cuchillo.\n Alargando la mano consigues coger el cuchillo y con el cortas las correas.\n Una vez liberado cocges la carta, que dice lo siguiente: \n\n\n");
 	        System.out.println("Buenos días princesa, \n" +
-	                "veo que por fin te has despertado, espero que tu cama haya sido cómoda.\n Te gustará saber que gracias a mis investigaciones he encontrado un virus capaz de aniquilar a la población, pero obviamente tenía que probarlo, y vaya que suerte, tenía a un joven apuesto y sano a mi disposición.\n Efectivamente, estás infectado por el, denominado por mi, COVID-20 (no se por qué el COVID-19 tenía copyright).\n Este virus tiene un tiempo de efecto de 2 horas, pero conforme vaya extendiendose por tu cuerpo verás diversos “efectos secundarios” que ya irás descubriendo.\n Pero tengo una buena noticia, ¡PUEDES SALVARTE!, he escondido el antídoto en este edificio, solo tendrás que sortear las dificultades que te he puesto (nada serio, tú tranquilo).\n Bueno, diviértete, BESIS!!!\n" +
+	                "veo que por fin te has despertado, espero que tu cama haya sido cómoda.\n Te gustará saber que gracias a mis investigaciones he encontrado un virus capaz de aniquilar a la población,\n pero obviamente tenía que probarlo, y vaya que suerte, tenía a un joven apuesto y sano a mi disposición.\n Efectivamente, estás infectado por el, denominado por mi, COVID-20 (no se por qué el COVID-19 tenía copyright).\n Este virus tiene un tiempo de efecto de 2 horas, pero conforme vaya extendiendose por tu cuerpo verás diversos “efectos secundarios” que ya irás descubriendo.\n Pero tengo una buena noticia, ¡PUEDES SALVARTE!, he escondido el antídoto en este edificio, solo tendrás que sortear las dificultades que te he puesto (nada serio, tú tranquilo).\n Bueno, diviértete, BESIS!!!\n" +
 	                "Con cariño, P.S\n" +
 	                "P.D: Deberías fijarte en las letras que son capitales, es el primer paso para salvarte <3\n");
 	        System.out.println("Notas como el sudor empieza a caer por tu piel, tienes una cuenta atrás antes de morir, tienes que encontrar la salida y el antídoto cuanto antes, pero lo primero es salir de esa habitación...¿letras capitales, que querra decir?");
@@ -862,6 +863,7 @@
 	                    }
 	                    break;
 	                case "5":
+	                	//Añadimos unas zonas de ambientacion que no nos daran objetos ni nada
 	                    System.out.println("Te acercas a una pequeña zona que hay de espera. Hay unos sofas y una pequeña mesa donde hay varias revistas.");
 	                    break;
 	                case "6":
