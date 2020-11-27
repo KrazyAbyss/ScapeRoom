@@ -239,6 +239,8 @@
 	                        if(respuesta.equals("1")){
 	                            //Aqui utilizo la variable cogerPieza para que asi no puedas coger infinitas piezas, ademas de que luego lo utilizo para hacer el cambio de parte en la scape room
 	                            cogerPieza=true;
+	                            //pongo la variable piezaSol para poder mostrar este objeto en el inventario si el usuario
+	                            //deccide comprobarlo en la habitacion justo despues de cogerlo
 	                            piezaSol=true;
 	                        }else{
 	                            System.out.println("Aunque parece algo importante, decides dejar la pieza en el armario");
@@ -249,6 +251,7 @@
 	                    }
 	                    break;
 	                case "4":
+	                	//Vuelta al vestibulo
 	                    System.out.println("Decides volver al vestíbulo");
 	                    primeroD=false;
 	                    break;
@@ -272,9 +275,11 @@
 	        return estadoScapeRoom;
 	    }
 	    public static boolean habitacionA1(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean eventoHabitacionA1,boolean cizalla){
+	    	//Aqui declaro las variables utilizadas para la habitacion y para moverse, esto es lo mismo en todas
 	        boolean nota=false,habitacionA1=true;
 	        String movimientoHabitacionA1;
 	        Scanner sc=new Scanner(System.in);
+	        //este if lo hago para que haya una entrada diferente dependiendo de si el evento todavia no se ha hecho o si ya se ha hecho
 	        if(eventoHabitacionA1) {
 	            System.out.println("Entras en la habitacion A1. Al entrar ves como hay un ventilador girando, de el hay una...persona colgada. No sabes como el ventilador se sostiene\n" +
 	                    "El cadaver sigue girando y girando. Ademas ves una mesa con varios documentos");
@@ -282,6 +287,7 @@
 	            System.out.println("Entras en la habitacion A1. El cadaver de antes yace junto al ventilador roto en el suelo.");
 	        }
 	        do {
+	        	//hacemos el do while de todas las habitaciones
 	            System.out.println("\n" +
 	                    "¿A donde quieres ir?\n" +
 	                    "1.- Mesa\n" +
@@ -290,6 +296,7 @@
 	                    "4.- Consultar tu estado\n" +
 	                    "5.- Rendirse(Salir del juego)\n");
 	            movimientoHabitacionA1 = sc.next();
+	            //Un switch aqui para controlar el movimiento,al igual que en todas las habitaciones
 	            switch (movimientoHabitacionA1) {
 	                case "1":
 	                    System.out.println("Te acercas a la mesa, ves varios documentos y entre ellos una nota:\n" +
@@ -297,9 +304,13 @@
 	                            "problema con las adivinanzas. Hemos intentado que nos diga la respuesta pero solo repite una cosa:\n" +
 	                            "3 U 10. Si tienes idea de que puede significar dimelo.\n" +
 	                            "Geronimo' ");
+	                    //La variable nota esta hecha para controlar cuando tiene que pasar el evento
+	                    //En este caso sera cuando el usuario haya leido la nota
 	                    nota=true;
 	                    break;
 	                case"2":
+	                	//Aqui hago otro if para hacer lo mismo que al principio, dos descripciones que saldra una u otra
+	                	//Dependiendo de si el evento ha pasado o tiene que pasar
 	                    if(eventoHabitacionA1) {
 	                        System.out.println("Te acercas al ventilador. Sigue girando y el cuerpo con el." +
 	                                "\n Ves que la persona llevaba un bata, que ahora esta completamente destrozada, con un corte longitudinal en el pecho. ");
@@ -308,6 +319,7 @@
 	                    }
 	                    break;
 	                case"3":
+	                	//Volvemos al vestibulo
 	                    System.out.println("Vuelves al vestibulo");
 	                    habitacionA1=false;
 	                    break;
@@ -319,10 +331,14 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
+	            //Este es el evento, pongo dos condiciones para que pase cuando nota sea true y para que cuando se produzca
+	            //eventoHabitacionA1 cambie a falso y no se repita mas.
 	            if ((nota) && (eventoHabitacionA1)) {
 	                System.out.println("Cuando coges la nota, escuchas un ruido estruendoso detrás tuya.\n" +
 	                        " Al girarte te das cuenta de que el ventilador se ha caido y el cadaver esta de pie, mirandote.");
-	                if(corduraPersonaje<=25){
+	                //El evento sera diferente dependiendo de si tenemos la cordura baja o no (tiene sentido por la historia)
+	                //Si no tienes la cordura lo suficientemente baja lo que hara sera hacerte daño y ya.
+	                if(corduraPersonaje<=80){
 	                    System.out.println("Derrepente, ves como el cadaver levanta las manos, no para pegarte, si no como para protegerse el mismo \n" +
 	                            "Ves como se va echando para atras, puedes observar el terror en sus ojos. \n" +
 	                            "Entonces, notas como el aire se vuelve mas fuerte delante tuya por un momento. Cuando vuelves a mirar el cadaver,\n" +
@@ -334,15 +350,21 @@
 	                            "Sales de la habitacion con las pocas fuerzas que te quedan.");
 	                            habitacionA1=false;
 	                }
+	            //Aqui hago el cambio de boolean a false para que no se repita el evento mas
 	            eventoHabitacionA1=false;
 	            }
 	        }while(habitacionA1);
 	        return eventoHabitacionA1;
 	    }
 	    public static String  habitacionB1(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,String estadoPlanta,String estadoEscopeta,boolean escopeta,boolean piezaCruz,boolean cizalla){
+	    	//Declaracion de variables: las de movimiento y de habitacion
 	        Scanner sc=new Scanner(System.in);
-	        boolean combate=false,habitacionB1=true;
+	        boolean habitacionB1=true;
 	        String movimientoHabitacionB1;
+	        //Aqui utilizo el estado de Planta, variable declarada en el main para saber si la planta estara viva o no
+	        //Si te acuerdas esto dependera del puzzle de la habitacion 1B, que un primer momento parecia que no valia  para nada.
+	        //Utilizo dos ifs para diferenciar, se que podria haberlo hecho como en la habitacion A1 pero preferi hacerlo asi porque quedaba mas claro
+	        //al menos a mi parecer.
 	            if (estadoPlanta.equals("Fertilizada")){
 	                System.out.println("Entras a la habitacion B1. Se parece bastante al laboratorio del principio," +
 	                        "hay una especie de maceta gigante donde hay una planta carbonizada.\n" +
@@ -358,6 +380,7 @@
 	                            "5.- Rendirse(Salir del juego)\n");
 	                    movimientoHabitacionB1=sc.next();
 	                    switch (movimientoHabitacionB1){
+	                    //Aqui metemos texto ambiental y tambien una pista para un puzzle futuro
 	                        case "1":
 	                            System.out.println("Te acercas a la mesa, no ves nada importante, pero al acercarte ves ordenador encendido, el teclado esta manchado de sangre y algunas teclas estan saltadas. Hay algo escrito en la pantalla, parece un correo sin enviar: \n" +
 	                                    "'Necesitamos ayuda. Se ha escapado con todos, me he encontrado antes un cadaver que tenia escrito\n" +
@@ -366,16 +389,22 @@
 	                                    " el resto de palabras son teclas aleatorias, como si alguien hubiese aporreado el teclado'");
 	                            System.out.println("'Que cojones hay aqui, que es lo que anda suelto'");
 	                            break;
+	                        //Aqui utilizo la variable estadoEscopeta, declarada e inicializada en el main, para controlar si la escopeta se ha cogido y evitar que se cogan infinitas escopetas
+	                        //Esta escopeta nos servira para uno de los finales.    
 	                        case "2":
 	                            if(estadoEscopeta.equals("NoCogida")) {
 	                                System.out.println("Te acercas al estante,la planta esta carbonizada y no parece que  vaya a hacer nada. Puedes acercate a la escopeta. La coges. Ahora te sientes mas seguro.Tiene una bala, parece que solo tiene un uso");
+	                                //Aqui lo que hago es cambiar el estado de la escopeta y la variable escopeta
+	                                //La primera para evitar que puedes cogar varias escopetas
+	                                //La segunda para que te salga en el inventario en la misma habitacion
 	                                estadoEscopeta="Cogida";
 	                                escopeta=true;
 	                                break;
 	                            }else{
 	                                System.out.println("Te acercas al estante, no parece que haya nada más importante.La planta sigue carbonizada.");
 	                            }
-	                        case "3":
+	                        //Aqui hago las mismas opciones de las habitaciones, para poder salir de la habitacion, del juego y poder salir del juego    
+	                        case "3":	       
 	                            System.out.println("Vuelves al vestibulo");
 	                            habitacionB1=false;
 	                            break;
@@ -388,6 +417,7 @@
 	                            System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	                    }
 	                }while(habitacionB1);
+	             //En este if hago lo mismo que en el anterior, solo hay cambios a la hora de coger la escopeta
 	            }else{
 	                System.out.println("Entras a la habitacion B1. Se parece bastante al laboratorio del principio," +
 	                        "hay una especie de maceta gigante donde hay una planta enorme.\n" +
@@ -412,13 +442,14 @@
 	                            System.out.println("'Que cojones hay aqui, que es lo que anda suelto'");
 	                            break;
 	                        case "2":
+	                        	//Al intentar ir a coger la escopeta,la planta nos atacara, nos impedira el paso y no podremos coger la escopeta
+	                        	//Quitarnos vida solo lo hara una vez, por ello cambio el estado de la escopeta, para que no se repita el evento.
 	                            if(estadoEscopeta.equals("NoCogida")) {
 	                                System.out.println("Te intentas acercar al estante, en un primer momento la planta no se mueve pero al intentar aproximarte a la escopeta, la planta se abre descubriendo una boca mosntruosa que va hacia ti.\n" +
 	                                        "Te muerde fuerte el torso, aun así con el cuchillo coges liberarte y huir, la planta vuelve a cerrarse.\n" +
 	                                        "No parece que sea posible alcanzar la escopeta");
 	                                estadoEscopeta="IntentodeCogida";
 	                                saludPersonaje-=20;
-	                                corduraPersonaje-=20;
 	                                break;
 	                            }else{
 	                                System.out.println("Te gustaria coger la escopeta, pero esta la planta en medio. Antes has tenido suerte zafandote, pero es bastante probable que si lo vuelves a intentar, mueras." +
@@ -439,14 +470,21 @@
 	                }while(habitacionB1);
 
 	            }
+	        //Devuelvo el estado de la escopeta para hacer los cambios en el main
 	        return estadoEscopeta;
 	    }
-	    public static boolean habitacionC1(){
+	    public static boolean habitacionC1(){	    
 	        Scanner sc=new Scanner(System.in);
+	        //Declaramos variables, destacamos la variable evento y que no este la variable de la habitacion
+	        //Basicamente esta habitacion es especial, al entrar pasaran una serie de eventos que impdeiran al jugador hacer nada
+	        //Cuando consiga salir de la habitacion no podra volver a entrar
+	        //Saldra cuando se acabe el evento, por eso no hay un do while, si no un for.
 	        boolean evento=false;
 	        String movimientoHabitacionC1;
 	        System.out.println("Entras a la habitacion, es completamente blanca con una pequeña alcantarilla, no ves nada más. ");
+	        //Aqui hacemos el for, que dependiendo de la vuelta que sea, nos mostrara un menu u otro, todos controlados por switches
 	        for(int i=0;i<=3;i++){
+	        	//En el primer bucle podremos elegir para investigar un sitio o irnos, cabe destacar que en este sitio no podremos mirar los menus 
 	            if(i==0){
 	                System.out.print("¿A donde quieres ir" +
 	                        "\n 1.- Alcantarilla" +
@@ -465,7 +503,7 @@
 	                        System.out.println("Te quedas parado en medio de la habitacion cuando escuchas un sonido detras tuya, miras y" +
 	                                "\n donde antes estana la puerta ahora hay una palabra escrita en sangre, 'CULPABLE'.La puerta ha desaparecido");
 	                        break;
-	                }
+	                }	               
 	            }else if(i==1){
 	                System.out.print("¿A donde quieres ir?" +
 	                        "\n 1.- Alcantarilla" +
@@ -485,6 +523,7 @@
 	                }
 	                System.out.println("Vuelves al medio de la habitacion y ves como las paredes se empiezan a llenar de la misma palabra continuamente. Todas escritos con sangre");
 	            }
+	            //Aqui ya directamente no añadimos switches, porque hagas lo que haga solo podras hacer una cosa
 	            else if(i==2){
 	                System.out.println("Escuchas un ruido que viene de la alcantarilla, cuando te giras te das cuenta que esta saliendo sangre que está llenando la habitacion. No para de salir y empieza a llenar todo el suelo");
 	                System.out.print("Necsitas salir de aqui ahora mismo" +
@@ -505,6 +544,7 @@
 	                        "\n 4.- CULPABLE" +
 	                        "\n 5.- CULPABLE\n");
 	                movimientoHabitacionC1=sc.next();
+	                //Finalmente el evento se acabara y nos permitira salir
 	                System.out.println("No puedes mas, la cabeza te va a estallar. La sangre te empieza a llegar por las rodillas. Piensas que esta todo acabado cuando derrepente ves como vuelve a aparecer la puerta" +
 	                        "\n Con las pocas fuerzas que te quedan vas hacia la puerta y la atraviesas, vuelves a estar en el vestibulo. La puerta se cierra detras tuya y cuando te miras te das cuenta que esta completamente limpio," +
 	                        "\n como si no hubiese pasado nada.'Necesito salir de aqui.YA'");
@@ -515,11 +555,14 @@
 	    }
 	    public static boolean habitacionD1(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla){
 	        Scanner sc=new Scanner(System.in);
+	        //Aqui declaramos las variables ademas de la variable evento para controlar el evento y
+	        //la variable contraseña que nos servira para el puzzle
 	        boolean habitacionD1=true,evento=false;
 	        String movimientoHabitacionD1,contraseña;
-	        System.out.println("Entras a la habitacion D1. Cuando entras los gritos paran, y ves una habitacion bastante pequeña, que tiene una camilla.\n" +
-	                " En ella, atado, un hombre completamente despellejado, con boca y ojos cerrados. A su lado ves tambien un armario de cristal. Tiene algo dentro.");
+	        System.out.println("Entras a la habitacion D1. Ves una habitacion bastante pequeña, que tiene una camilla.\n" +
+	                " En ella, atado, un hombre completamente despellejado. A su lado ves tambien un armario de cristal. Tiene algo dentro.");
 	        do {
+	        	//Hacemos el bucle para controlar el movimiento junto al switch
 	            System.out.println("\n" +
 	                    "¿A donde quieres ir?\n" +
 	                    "1.- Camilla\n" +
@@ -530,6 +573,7 @@
 	            movimientoHabitacionD1 = sc.next();
 	            switch (movimientoHabitacionD1) {
 	                case"1":
+	                	//Aqui habra un texto dependiendo de si hemos cogido la pieza Cruz
 	                    if(!piezaCruz){
 	                        System.out.println("Te acercas a la camilla, las correas estan sujetas al cuerpo, rigidas." +
 	                                "\n El cuerpo esta inmovil, completamente despellajado. Aun puedes ver ciertos trozo de piel. Los ojos y boca estan cerrados.");
@@ -540,6 +584,9 @@
 	                    }
 	                    break;
 	                case"2":
+	                	//Aqui igual, dependiendo de si hemos cogido la pieza Cruz nos pondra una cosa u otra
+	                	//Si no la hemos cogido nos dara paso a hacer el puzzle
+	                	//Si la hemos cogido nos dira que no hay nada mas en el armario
 	                    if(!piezaCruz){
 	                       System.out.println("Te acercas al armario, dentro hay una pieza, parecida a la que cogiste antes. El armario esta cerrado, hay una nota: \n" +
 	                               "'En el cielo brinco y vuelo. Me encanta subir, flotar y lucir mi pelo.'\n" +
@@ -558,6 +605,7 @@
 	                        System.out.println("Te acercas al armario. No ves nada importante. Muchos papeles, batas... .");
 	                    }
 	                    break;
+	                //Como siempre, ponemos opciones para irnos y para comprobar el estado de nuestro personaje.
 	                case"3":
 	                    habitacionD1=false;
 	                    System.out.println("Vuelves al vestibulo");
@@ -570,6 +618,9 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
+	            //Aqui hacemos un if para que en caso de que cojamos la pieza y el evento sea true
+	            //Pase un mini evento, ambas variables estan para controlar cuando se produce y
+	            //Evitar que se repita continuamente
 	            if((piezaCruz)&&(evento)){
 	                System.out.println("Cuando coges la pieza y te giras, un escalofrio te recorre todo el cuerpo.\n" +
 	                        " Los ojos del cadaver, completamente abiertos, te miran y una especie de sonrisa se le dibuja en el rostro.\n" +
@@ -577,15 +628,19 @@
 	                evento=false;
 	            }
 	        }while(habitacionD1);
+	        //Devolvemos la piezaCruz para que se cambie en el main
 	        return piezaCruz;
 	    }
 	    public static void bibliotecaOscura(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla){
 	        Scanner sc = new Scanner(System.in);
+	        //Declaramos las variables de la habitacion ademas de las variables de
+	        //eleccionFila3 y Libro para buscar una informacion que nos sera necesario para realizar un puzzle.
 	        boolean bibliotecaOscura=true;
 	        String movimientoBibliotecaOscura,eleccionFila3,libro;
 	        System.out.println("Entras a la biblioteca. Cuando entras ves como lo que se supone que era un mostrador esta completamente destrozado, hay marchas de cortes." +
 	                "\n Hay varias filas de libros, 5 en concreto, y un rastro de sangre que va desde el mostrador a la fila 2.");
 	        do {
+	        	//Hacemos el bucle de la habitacion y un switch para controlar el movimiento
 	            System.out.println("\n" +
 	                    "¿A donde quieres ir?\n" +
 	                    "1.- Fila 1\n" +
@@ -598,6 +653,7 @@
 	                    "8.- Rendirse(Salir del juego)\n");
 	            movimientoBibliotecaOscura = sc.next();
 	            switch (movimientoBibliotecaOscura){
+	            //Dependiendo de las filas nos pondra una serie de informacion, que sera importante para los puzzles o para la historia
 	                case"1":
 	                    System.out.println("Te acercas a la primera fila, ves varios cubiletes que en otro momento guardarian libros, ahora estan vacios.\n" +
 	                            "Los libros estan desgarrados y destrozados.No parece que haya nada de importancia aqui.");
@@ -607,6 +663,7 @@
 	                            "'¿Que coño es esto? Tiene pinta de una combinacion, puede servirme'");
 	                    break;
 	                case"3":
+	                	//Aqui utilizaremos las variables "libro" y "eleccionFila3" 
 	                    System.out.println("Vas a la fila 3, sorprendentemente esta fila es la unica llena de libros. Hay varios cubiletes de distintas letras" +
 	                            "\n ¿cuál quieres revisar?" +
 	                            "\n1.-A" +
@@ -638,6 +695,7 @@
 	                            "Uno te destaca por encima del resto 'P.S.'.\n");
 	                    System.out.println("'Son las mismas iniciales que las de esa cosa que me ha metido esto, pero no puede ser cierto ¿verdad?'");
 	                    break;
+	                //Aqui añadimos las opciones de siempre    
 	                case"6":
 	                    System.out.println("Sales de la biblioteca");
 	                    bibliotecaOscura=false;
@@ -655,9 +713,12 @@
 	    }
 	    public static boolean comedorOscuro(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla){
 	        Scanner sc = new Scanner(System.in);
+	        //Declaramos las variables
 	        boolean comedorOscuro=true;
 	        String movimientoComedorOscuro;
-	        if(cizalla){
+	        //Aqui hacemos un if para controlar si sale un texto u otro, dependiendo de si hemos cogido 
+	        //La cizalla o no.
+	        if(!cizalla){
 	            System.out.println("Entras en el comedor. Esta destrozado, todas las sillas y mesas estan en las paredes y en el centro de la habitacion\n" +
 	                    "hay lo que parece un frigorifico.No para de moverse,como si hubiese algo dentro.");
 	        }else{
@@ -674,6 +735,8 @@
 	            movimientoComedorOscuro = sc.next();
 	            switch (movimientoComedorOscuro){
 	                case"1":
+	                	//Aqui hacemos el evento para coger la cizalla, pasará si no la tenemos
+	                	//si la tenemos nos pondra otro texto.
 	                    if(!cizalla){
 	                        System.out.println("Te acercas al frigorifo.Conforme te vas acercando empieza a agitarse mas y mas\n" +
 	                                "Te armas de valor y extiendes el brazo para abrirlo, el frigorifico tiembla mas y mas.\n" +
@@ -684,6 +747,7 @@
 	                        System.out.println("Te acercas al frigorifico. Esta abierto, no ves que tenga nada mas.");
 	                    }
 	                    break;
+	                    //Las demas opciones son las mismas de siempre y una sobre un lugar que podemos visitar
 	                case"2":
 	                    System.out.println("Te acercas a las mesas.Estan la mayoria destrozadas, como si algo los hubiera destrozado.No ves nada util.");
 	                    break;
@@ -880,7 +944,12 @@
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
 	        } while (primeraPlanta);
+	        
+	        //Aqui metemos el segundo do while, el de la segunda parte de la scape room,
+	        //que sera en una zona "espejo" de la primera pero mucho mas oscura
+	        
 	        do {
+	        	//Aqui esta el dowhile de la primera planta "oscura" (es como yo las he diferenciado de las otras
 	            System.out.println("\n" +
 	                    "¿A donde quieres ir?\n" +
 	                    "1.- Habitacion A1\n" +
@@ -893,7 +962,11 @@
 	                    "8.- Rendirse(Salir del juego)\n");
 	            movimientoPrimeraPlantaOscura = sc.next();
 	            switch (movimientoPrimeraPlantaOscura) {
+	            //Aqui hacemos los diferentes lugares
 	                case "1":
+	                	//Esta es la habitacion A1, nos devolvera el valor del evento para saber si ha pasado
+	                	//Si ha pasado haremos los cambios en la salud o en la cordura,respectivamente,
+	                	//asi al hacerlo en el main ya se graba en el resto del programa
 	                    eventoHabitacionA1 = habitacionA1(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz, eventoHabitacionA1,cizalla);
 	                    if ((!eventoHabitacionA1) && (!eventoSucedido)) {
 	                        if (corduraPersonaje <= 80) {
@@ -901,19 +974,28 @@
 	                        } else {
 	                            saludPersonaje -= 40;
 	                        }
+	                        //La variable evento sucedido la pongo para que no se repita esto cada vez que netremos en la habitacion A1
 	                        eventoSucedido = true;
 	                    }
 	                    break;
 	                case "2":
+	                	//Aqui viene la habitacion de la escopeta, utilizo la variable del estado para controlar 
+	                	//si la hemos cogido o no, al igual que antes, para que esta comprobacion no se repita
+	                	//cambio el estado de la escopeta a "NoSePuedeCoger", impidiendo que se repita el evento
 	                    estadoEscopeta = habitacionB1(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, estadoPlanta, estadoEscopeta, escopeta, piezaCruz,cizalla);
+	                    //Añadimos los if para controlar el evento que ha pasado
+	                    //si no hemos podido coger la escopeta nos quitara vida
+	                    //si lo hemos cogido, escopeta se volvera true
 	                    if (estadoEscopeta.equals("Cogida")) {
 	                        escopeta = true;
-	                        estadoEscopeta = "NoSePuedeCoger";
+	                        estadoEscopeta = "NoSePuedeCoger";	                    
 	                    } else if (estadoEscopeta.equals("IntentodeCogida")) {
 	                        saludPersonaje -= 20;
 	                        estadoEscopeta = "NoSePuedeCoger";
 	                    }
 	                    break;
+	                    //aqui añadimos la habitacionC1, que como hemos visto en el subprograma sera una habitacion diferente
+	                    //la variable de la habitacion cerrada servira para evitar que el personaje vuelva a entrar en la habitacion
 	                case "3":
 	                    if (!habitacionC1Cerrada) {
 	                        habitacionC1Cerrada = habitacionC1();
@@ -923,14 +1005,20 @@
 	                    }
 	                    break;
 	                case "4":
+	                	//Aqui añadimos la habitacion para conseguir la piezaCruz, necesaria para hacer el puzzle final
 	                    piezaCruz = habitacionD1(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla);
 	                    break;
 	                case "5":
+	                	//Aqui añadimos un evento para conseguir la llave de la habitacion 1A
+	                	//Añado el if para evitar que se haga de forma infinita y que solo se haga cuando tenemos la llave.
 	                    if (!llave1A) {
 	                        System.out.println("Te acercas al cadaver.Conforme te vas acercando  vas dandote cuenta que lo que tiene clavado es una llave.Ademas de eso no ves nada interesante." +
 	                                "\n ¿Coges la llave?" +
 	                                "\n 1.- Si" +
 	                                "\n 2.- No");
+	                        //Añado la variable cogerLlave para controlar si quieres coger la llave o no, 
+	                        //si dices que si la cogeres y pasara un evento
+	                        //si dices que no, simplemente te iras
 	                        cogerLlave = sc.next();
 	                        if (cogerLlave.equals("1")) {
 	                            System.out.println("Te armas el valor suficiente para coger la llave. Se la arrancas del craneo, esta a punto de salir cuando te agarra el brazo.\n" +
@@ -950,6 +1038,8 @@
 	                    }
 	                    break;
 	                case "6":
+	                	//En este plano nos permitira ir a la segunda planta, por eso podremos utilizar las escaleras
+	                	//y haremos el cambio de planta
 	                    System.out.println("Vas a las escaleras y te das cuenta de que ya no estan bloqueadas, pudiendo subir a la segunda planta.");
 	                    primeraPlantaOscura = false;
 	                    segundaPlantaOscura = true;
@@ -964,6 +1054,7 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
+	            //Aqui añadimos un if para que en caso de haber cogido la llave y la pieza cambiemos de plano otra vez,volviendo al otro plano
 	            if((piezaCruz)&&(llave1A)){
 	                parteScapeRoom="Parte2";
 	                primeraPlantaOscura=false;
@@ -971,9 +1062,11 @@
 	                System.out.println("Te empieza a doler la cabeza otra vez.Un dolor insoportable,solo que esta vez no cesa.No cesa hasta que te desmayas.\n" +
 	                        "Cuando te despiertas estas otra vez en la primera planta, en la qu empezaste. No sabes que ha pasado,pero ahora las escaleras estan abiertas.\n" +
 	                        "'Estoy cerca de el, lo presiento'.");
+	                parteScapeRoom="Parte2";
 	            }
 	        } while (primeraPlantaOscura);
 	        do {
+	        	//Aqui añadimos el bucle de la segunda planta "oscura"
 	            System.out.println("\n" +
 	                    "¿A donde quieres ir?\n" +
 	                    "1.- Biblioteca\n" +
@@ -984,12 +1077,16 @@
 	            movimientoSegundaPlantaOscura=sc.next();
 	            switch (movimientoSegundaPlantaOscura){
 	                case"1":
+	                	//Aqui ponemos el subprograma para entrar en la biblioteca "oscura"
 	                    bibliotecaOscura(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla);
 	                    break;
 	                case"2":
+	                	//Aqui ponemos el subprograma para entrar en el comedorOscuro
+	                	//Igualamos a la cizalla para que en caso de tenerla se nos ponga como true
 	                    cizalla=comedorOscuro(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla);
 	                    break;
 	                case"3":
+	                	//Para volver a la primer planta "oscura"
 	                    System.out.println("Decides volver a la primer planta");
 	                    segundaPlantaOscura=false;
 	                    primeraPlantaOscura=true;
