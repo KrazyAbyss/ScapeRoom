@@ -866,7 +866,7 @@
 	        candado = habitacion1C(saludPersonaje, corduraPersonaje, candado, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla);
 	        //Aqui el usuario consigue salir de la habitacion 1C y entramos en el bucle de la primera planta(utilizo el do while porque el bucle tiene que pasar como minimo una vez
 	    do{
-	        do {
+	    	 while (primeraPlanta){
 
 	            //Aqui mostramos el menu donde el usuario podra elegir que hacer,
 	            System.out.println("\n" +
@@ -931,7 +931,13 @@
 	                    System.out.println("Te acercas a una pequeña zona que hay de espera. Hay unos sofas y una pequeña mesa donde hay varias revistas.");
 	                    break;
 	                case "6":
-	                    System.out.println("Te acercas a las escaleras, una barricada de muebles te impide pasar, tendrás que ir a otro lado");
+	                	if(parteScapeRoom.equals("Parte2")) {
+	                		System.out.println("Cuando te acercas a las escaleras, ya no estan bloqueadas. La muralla ha desaparecido.\n"
+	                				+ "'Ha llegado la hora e acabar con esto'");
+	                		
+	                	}else {
+	                		System.out.println("Te acercas a las escaleras, una barricada de muebles te impide pasar, tendrás que ir a otro lado");
+	                	}
 	                    break;
 	                case "7":
 	                    //Aqui utilizo el subprograma que nos permitirá comprobar el estado de nuestro protagonista
@@ -943,12 +949,12 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
-	        } while (primeraPlanta);
+	        }
 	        
 	        //Aqui metemos el segundo do while, el de la segunda parte de la scape room,
 	        //que sera en una zona "espejo" de la primera pero mucho mas oscura
 	        
-	        do {
+	        while (primeraPlantaOscura) {
 	        	//Aqui esta el dowhile de la primera planta "oscura" (es como yo las he diferenciado de las otras
 	            System.out.println("\n" +
 	                    "¿A donde quieres ir?\n" +
@@ -1064,8 +1070,8 @@
 	                        "'Estoy cerca de el, lo presiento'.");
 	                parteScapeRoom="Parte2";
 	            }
-	        } while (primeraPlantaOscura);
-	        do {
+	        }
+	        while (segundaPlantaOscura){
 	        	//Aqui añadimos el bucle de la segunda planta "oscura"
 	            System.out.println("\n" +
 	                    "¿A donde quieres ir?\n" +
@@ -1099,7 +1105,7 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
-	        }while (segundaPlantaOscura);
+	        }
 	    }while(escapeRoom) ;
 	    }
 	}
