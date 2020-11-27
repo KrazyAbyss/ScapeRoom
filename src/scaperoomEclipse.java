@@ -1,8 +1,140 @@
 	import java.awt.*;
 	import java.util.Scanner;
 	public class scaperoomEclipse {
-	    public static void habitacion1A(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
-
+	    public static String habitacion1A(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha,String baul){
+	    	Scanner sc = new Scanner(System.in);
+	    	boolean habitacion1A=true;
+	    	String movimientoHabitacion1A,cadenas,candadoNumerico,candadoPalabra;
+	    	System.out.println("Utilizas la llave y consigues entrar en la habitacion. Al entrar te quedas estupefacto.\n"
+	    			+ "De la viga del techo hay un hombre colgado, parece que se ha suicidado.\n"
+	    			+ "Ademas de eso, hay un escritorio a su lado y una especie de baul");
+	    	do {
+	    		System.out.println("\n" +
+                    "¿A donde quieres ir?\n" +
+                    "1.- Escritorio \n" +
+                    "2.- Hombre \n" +
+                    "3.- Baul \n" +
+                    "4.- Puerta \n" +
+                    "5.- Consultar tu estado\n" +
+                    "6.- Rendirse(Salir del juego)\n");
+	    		movimientoHabitacion1A=sc.next();
+	    		switch(movimientoHabitacion1A) {
+	    			case"1":
+	    				System.out.println("Te acercas al escritorio. La luz apunta a un papel , ha sido una pluma, parece una carta: \n\n\n"
+	    						+ "'Espero que en algun momento leas esta carta. Sabes que esta carta va para ti\n"
+	    						+ "Que te hayas escapado es culpa mia, yo confie en ti y ahora estas haciendo estragos con todo, \n"
+	    						+ "parece increible que una persona que se presupone tan lista como yo haya sido engañado por un enfermo mental,\n"
+	    						+ "pero ambos sabemos que eres mas que eso, sobre todo tu, los otros te tiene miedo, el unico que te planta cara es Peter \n"
+	    						+ "pero hace tiempo que no hablo con el y temo que hayas acabado con el.\n"
+	    						+ "No voy a estar para descubrirlo, voy a acabar con esto antes de que vengas, porque vendras,\n"
+	    						+ "tengo lo mas preciado para ti, lo voy a guardar para que no puedas tenerlo nunca.\n"
+	    						+ "Espero que te pudras en el mas oscuro infierno.");
+	    				System.out.println("No hay nada mas escrito. Conforme la ibas leyendo te has ido incomodando mas y mas, \n"
+	    						+ "aunque no sabes por que. No ves nada mas util en la mesa.");
+	    				break;	    		
+	    			case"2":
+	    				System.out.println("Te acercas al hombre. LLeva puesto una bata, asi que supones que trabajaba en el psiquiatrico. \n"
+	    						+ "Esta ahorcado en la viga, no ves nada interesante.");
+	    				break;
+	    			case"3":
+	    				if((cizalla)&&(baul.equals("CerradaCerradaCerrada"))) {
+	    					System.out.println("Te acercas al baul, esta rodeado por cadenas de tal forma\n"
+	    						+ " que la persona que la persona que lo haya hecho debe haber querido guardar algo a toda costa.\n "
+	    						+ "Tienes la cizalla, ¿quieres utilizarla para romper las cadenas?\n"
+	    						+ "1.- SI\n"
+	    						+ "2.- NO\n");
+	    					cadenas=sc.next();
+	    					if(cadenas.equals("1")) {
+	    						baul="AbiertaCerradaCerrada";
+	    						System.out.println("Coges la cizalla y vas partiendo una a una las cadenas. Tras quitarlas todas te das cuenta\n"
+	    								+ " de que el baul sigue cerrado por un candado numerico\n");
+	    						System.out.println("Introduce una combinacion\n");
+	    						candadoNumerico=sc.next();
+	    						if(candadoNumerico.equals("0923")) {
+	    							baul="AbiertaAbiertaCerrada";
+	    							System.out.println("Al introducir la combinacion el candado se abre, al fin, desvelando lo qeu hay dentro del baul... \n"
+	    									+ "Otro maletin. Dentro de la caja hay otro maletin protegido por una cerradura electronica,\n"
+	    									+ "definitivamente alguien queria mantener en secreo lo qeu sea que haya aqui.");
+	    							System.out.println("Introduce la contraseña\n");
+	    							candadoPalabra=sc.next();
+	    							candadoPalabra=candadoPalabra.toLowerCase();
+	    							if(candadoPalabra.equals("culpable")) {
+	    								baul="AbiertaAbiertaAbierta";
+	    								System.out.println("Conforme vas introduciendo las letras el corazon te va palpitando mas y mas. Sabes que es la correcta. \n"
+	    										+ "Abres el maletin y dentro hay... un hacha. La coges y al momento sientes como si una parte de ti hubiese vuelto.");
+	    								hacha=true;
+	    								corduraPersonaje-=20;
+	    							}else {
+	    								System.out.println("CONTRASEÑA EQUIVOCADA");
+	    							}
+	    						}else {
+	    							System.out.println("Pones la combinacion pero el candado no se afloja. Debe ser erronea.");
+	    						}
+	    					}else {
+	    						System.out.println("Prefieres deja eso sin abrir. Si esta cerrado es por algo.");
+	    					}
+	    					
+	    				}else if(baul.equals("AbiertaCerradaCerrada")) {
+	    					System.out.println("Te acercas al baul. Vuelves a intentar abrir el candado.");
+	    					System.out.println("Introduce una combinacion\n");
+    						candadoNumerico=sc.next();
+    						if(candadoNumerico.equals("0923")) {
+    							baul="AbiertaAbiertaCerrada";
+    							System.out.println("Al introducir la combinacion el candado se abre, al fin, desvelando lo qeu hay dentro del baul... \n"
+    									+ "Otro maletin. Dentro de la caja hay otro maletin protegido por una cerradura electronica,\n"
+    									+ "definitivamente alguien queria mantener en secreo lo qeu sea que haya aqui.");
+    							System.out.println("Introduce la contraseña");
+    							candadoPalabra=sc.next();
+    							candadoPalabra=candadoPalabra.toLowerCase();
+    							if(candadoPalabra.equals("culpable")) {
+    								baul="AbiertaAbiertaAbierta";
+    								System.out.println("Conforme vas introduciendo las letras el corazon te va palpitando mas y mas. Sabes que es la correcta. \n"
+    										+ "Abres el maletin y dentro hay... un hacha. La coges y al momento sientes como si una parte de ti hubiese vuelto.");
+    								hacha=true;
+    								corduraPersonaje-=20;
+    							}else {
+    								System.out.println("CONTRASEÑA EQUIVOCADA");
+    							}
+    						}else {
+    							System.out.println("Pones la combinacion pero el candado no se afloja. Debe ser erronea.");
+    						}
+	    				}else if(baul.equals("AbiertaAbiertaCerrada")) {
+	    					System.out.println("Te acercas al baul. Dentro encuentras el maletin. Vuelves a intentar abrir el maletin");
+	    					System.out.println("Introduce la contraseña");
+							candadoPalabra=sc.next();
+							candadoPalabra=candadoPalabra.toLowerCase();
+							if(candadoPalabra.equals("culpable")) {
+								baul="AbiertaAbiertaAbierta";
+								System.out.println("Conforme vas introduciendo las letras el corazon te va palpitando mas y mas. Sabes que es la correcta. \n"
+										+ "Abres el maletin y dentro hay... un hacha. La coges y al momento sientes como si una parte de ti hubiese vuelto.");
+								hacha=true;
+								corduraPersonaje-=20;
+							}else {
+								System.out.println("CONTRASEÑA EQUIVOCADA");
+							}
+	    				}else if(hacha) {
+	    					System.out.println("Miras el baul donde estaba el hacha. No hay nada mas importante.");
+	    				}else {
+	    					System.out.println("Te acercas al baul, el cual esta rodeado de cadenas. No tienes nada para romperlas, asi que poco mas puedes hacer.");
+	    				}
+	    				break;
+	    			case"4":
+	    				System.out.println("Vuelves al vestibulo");
+	    				habitacion1A=false;
+	    				break;
+	    			case"5":
+	                    //Aqui utilizo el subprograma que nos permitirá comprobar el estado de nuestro protagonista
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    break;
+	    			case"6":
+	                    salirDelJuego();
+	                default:
+	                	System.out.println("Estas muy cerca del antidoto, no puedes dudar ahora.");
+	                	break;	    				
+	    		}
+	    	}while(habitacion1A);
+	    	
+	    	return baul;
 	    }
 	    public static String habitacion1B(int saludPersonaje,int corduraPersonaje,String estadoPlanta,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	        Scanner sc=new Scanner(System.in);
@@ -593,7 +725,7 @@
 	                               "Abajo, una cerradura electronica.\n" +
 	                               "Introduce una contraseña:");
 	                       contraseña=sc.next();
-	                       contraseña.toLowerCase();
+	                       contraseña=contraseña.toLowerCase();
 	                       if(contraseña.equals("cometa")){
 	                           System.out.println("La cerradura emite una luz verde y se abre,permitiendote coger la pieza.");
 	                           piezaCruz=true;
@@ -789,7 +921,9 @@
 	                    "9.- Rendirse(Salir del juego)\n");
 	            movimientoBiblioteca = sc.next();
 	            switch(movimientoBiblioteca) {
-	            	case"1":
+	            //En este switch añadiremos "cases" sencillos, de informacion, salvo el 4
+	            //que nos dara una pieza mas, la ultima necesaria para hacer el puzzle
+	            	case"1":	            	
 	            		System.out.println("Te acercas al mostrador. En un primer momento no ves nada pero si te fijas, hay un pequeño posit puesto en el borde,dice: \n"
 	            				+ "'Te he entregado el paquete.\n Te lo he dejado en la fila 4.\n No te olvides de el'");
 	            		System.out.println("No ves nada mas interesante");
@@ -808,6 +942,7 @@
 	            		System.out.println("Al llegar a esta fila te sorprende que no hay ningun libro, solo un pequeño cuadro con una cometa.");
 	            		break;
 	            	case"5":
+	            		//este es el case de la pieza, basicamente es todo texto, no hay ningun puzzle ni nada.
 	            		if(!piezaGolondrina) {	            			
 	            			System.out.println("Llegas a la fila 4, ves varios libros y un paquete encima de una silla.\n"
 	            				+ "'Este debe ser el paquete del que hablaba el posit'\n"
@@ -827,9 +962,14 @@
 	            	case"8":
 	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
+	            	case"9":
+	            		salirDelJuego();
+	            	default:
+	            		System.out.println("No tienes tiempo que perder, toda perdida de tiempo puede significar tu muerte, necesitas");
 	            }
 	    		
 	    	}while(biblioteca);
+	    	//devolvemos la variable de pieza, para que si la cogemos, la tengamos en el main
 	    	return piezaGolondrina;
 	    }
 	    public static void menuEstadoPersonaje( int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
@@ -924,7 +1064,7 @@
 	        //La salud y cordura de los personajes si lo he puesot como enteros
 	        int saludPersonaje = 100, corduraPersonaje = 100;
 	        //Finalmente declaramos algunas variables string,utilizadas para el movmiento como para diferentes puzzles o los cambio de parte en la scape room
-	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "";
+	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "", baul="CerradaCerradaCerrada";
 
 	        //En estos print se explica un poco la historia, los separo en tres para que quede mas claro
 	        System.out.println("Te levantas, la cabeza te duele, te cuesta abrir los ojos porque tienes una luz apuntando directamente hacia ti,\n cuando tus ojos se acostumbran puedes discernir donde estas.\n"
@@ -963,7 +1103,12 @@
 
 	                        //Si la tienes iras al subprograma habitacion 1A, las variables de entrada que pido son para el menu de estado, pasa lo mismo en todos los subprogramas
 	                        //Para ver que pasa en la habitacion 1A, vayase al subprograma habitacion1A
-	                        habitacion1A(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                        baul=habitacion1A(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha,baul);
+	                        if(baul.equals("AbiertaAbiertaAbierta")) {
+	                        	hacha=true;
+	                        	corduraPersonaje-=20;
+	                        	baul="HachaCogida";
+	                        }
 
 	                    } else {
 	                        //Si no tienes la llave te devolvera al menu de la primera planta
@@ -1007,7 +1152,11 @@
 	                    System.out.println("Te acercas a una pequeña zona que hay de espera. Hay unos sofas y una pequeña mesa donde hay varias revistas.");
 	                    break;
 	                case "6":
-	                	if(parteScapeRoom.equals("Parte2")) {
+	                	//Aqui añadimos un if donde la condicion sera que estemos en la parte 2 de la scape room, la final
+	                	//esto lo hacemos para evitar que se pueda subir a la segunda planta en la parte 0 de la scaperoom
+	                	//al cumplir la condicion podremos subir a la segunda planta, se nos hara un pequeño texto ambiental
+	                	//Ademas conseguiremos la tercera pieza de madera, que nos servira para hacer un else if
+	                	if(parteScapeRoom.equals("Parte2")&&(!piezaVirgen)) {
 	                		System.out.println("Cuando te acercas a las escaleras, ya no estan bloqueadas. La muralla ha desaparecido.\n"
 	                				+ "'Ha llegado la hora de acabar con esto'");
 	                		primeraPlanta=false;
@@ -1015,7 +1164,15 @@
 	                		System.out.println("Al subir ves tres puertas, las de la biblioteca y el comedor, a la derecha e izquierda respectivamente.\n "
 	                				+ "En el medio, una puerta que pone 'DESPACHO'. Tiene un cuadrado en el centro y un letrero, aunque tendras que acercarte\n"
 	                				+ "para verlo mejor.");
-	                	}else {
+	                		System.out.println("En el suelo, ves otra pieza de madera, tiene grabado una especie de persona arrollidada. La coges");
+	                		piezaVirgen=true;
+	                	//Este else if lo utilizamos para que el texto ambiental anterior solo pase la primera vez, que las demas veces sea un pequeño texto
+	                	//que favorezca el dinamismo de la scape room.
+	                	}else if(piezaVirgen){
+	                		System.out.println("Subes a la segunda planta");
+	                	}
+	                	//Este else esta hecho para que durante el principio de la scape room no podamos subir a la segunda planta.
+	                	else {
 	                		System.out.println("Te acercas a las escaleras, una barricada de muebles te impide pasar, tendrás que ir a otro lado");
 	                	}
 	                    break;
@@ -1027,6 +1184,7 @@
 	                    //Este subprograma esta hecho para permitir salir del juego en cualquier momento al usuario
 	                    salirDelJuego();
 	                default:
+	                	//validacion de errores
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
 	        }
@@ -1059,6 +1217,7 @@
 	    		 		primeraPlanta=true;
 	    		 		break;
 	    		 	case"5":
+	    		 		//subprograma para mostrar el estado del personaje(su salud, cordura, movimientos y objetos)
 	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	    		 	case"6":
