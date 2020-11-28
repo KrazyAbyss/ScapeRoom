@@ -1693,7 +1693,7 @@
 	    		 		if(puzzleDespacho.equals("Resuelto")){
 	    		 			System.out.println("Pones la ultima pieza. Escuchas un click y la puerta empieza a abrirse. \n"
 	    		 					+ "'Por fin, ha llegado la hora de la verdad");
-	    		 			//combateFinal();
+	    		 			combateFinal(saludPersonaje, corduraPersonaje,movimientos, cuchillo,escopeta,hacha);
 	    		 		}else if(puzzleDespacho.equals("Fallado")) {
 	    		 			finalDeScapeRoom="FinalPatetico";
 	    		 			finales(finalDeScapeRoom);
