@@ -2,6 +2,7 @@
 	import java.util.Scanner;
 	public class scaperoomEclipse {
 	    public static String habitacion1A(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha,String baul){
+	    	//Declaramos las variables de la habitacion, del movimiento y del puzzle de esta sala.
 	    	Scanner sc = new Scanner(System.in);
 	    	boolean habitacion1A=true;
 	    	String movimientoHabitacion1A,cadenas,candadoNumerico,candadoPalabra;
@@ -9,6 +10,7 @@
 	    			+ "De la viga del techo hay un hombre colgado, parece que se ha suicidado.\n"
 	    			+ "Ademas de eso, hay un escritorio a su lado y una especie de baul");
 	    	do {
+	    		//Hacemos el do while de todas las habitaciones junto al switch
 	    		System.out.println("\n" +
                     "¿A donde quieres ir?\n" +
                     "1.- Escritorio \n" +
@@ -20,6 +22,7 @@
 	    		movimientoHabitacion1A=sc.next();
 	    		switch(movimientoHabitacion1A) {
 	    			case"1":
+	    				//Aqui añadimos un poco de texto para la historia
 	    				System.out.println("Te acercas al escritorio. La luz apunta a un papel , ha sido una pluma, parece una carta: \n\n\n"
 	    						+ "'Espero que en algun momento leas esta carta. Sabes que esta carta va para ti\n"
 	    						+ "Que te hayas escapado es culpa mia, yo confie en ti y ahora estas haciendo estragos con todo, \n"
@@ -37,6 +40,15 @@
 	    						+ "Esta ahorcado en la viga, no ves nada interesante.");
 	    				break;
 	    			case"3":
+	    				//Lo destacable de esta sala es e puzzle, he querido una caja que este cerrada por tres cerraduras
+	    				//Ante la imposibilidad de devolver mas de una cosa debido a mis conocimientos 
+	    				//He decidido utilizar una cadena que cambiara dependiendo de si hemos resuelto o no los candados
+	    				//Ademas añado muchos if y else if,para que en caso de que abramos un candado pero los demas no,
+	    				//Si lo volvemos a intentar no tengamos que abrir otra vez los candados.
+	    				
+	    				//El primer candado se abrira si tenemos el objeto "cizalla"
+	    				//Ademas utilizo la variable baul para ir controlando los cerrojos
+	    				//y qu no tengas que abrir dos veces lo mismo
 	    				if((cizalla)&&(baul.equals("CerradaCerradaCerrada"))) {
 	    					System.out.println("Te acercas al baul, esta rodeado por cadenas de tal forma\n"
 	    						+ " que la persona que la persona que lo haya hecho debe haber querido guardar algo a toda costa.\n "
@@ -45,11 +57,14 @@
 	    						+ "2.- NO\n");
 	    					cadenas=sc.next();
 	    					if(cadenas.equals("1")) {
+	    						//Al resolver cada candado cambiamos la variable "baul" pra dejarlo grabado
 	    						baul="AbiertaCerradaCerrada";
 	    						System.out.println("Coges la cizalla y vas partiendo una a una las cadenas. Tras quitarlas todas te das cuenta\n"
 	    								+ " de que el baul sigue cerrado por un candado numerico\n");
 	    						System.out.println("Introduce una combinacion\n");
 	    						candadoNumerico=sc.next();
+	    						//El segundo cerrojo es una combinacion numerica, lo trato como cadena tambien
+	    						//Como antes, si lo resolvemos la variable baul cambia
 	    						if(candadoNumerico.equals("0923")) {
 	    							baul="AbiertaAbiertaCerrada";
 	    							System.out.println("Al introducir la combinacion el candado se abre, al fin, desvelando lo qeu hay dentro del baul... \n"
@@ -58,10 +73,14 @@
 	    							System.out.println("Introduce la contraseña\n");
 	    							candadoPalabra=sc.next();
 	    							candadoPalabra=candadoPalabra.toLowerCase();
+	    							//El ultimo candado es uno de letras, tenemos que introducir una palabra en concreto 
+	    							//utilizo el meteodo ".toLowerCase()"para cambiar lo que introduzcamos a minuscula
+	    							//asi no hay problemas y se introduce la clave correcta lo dara por valido
 	    							if(candadoPalabra.equals("culpable")) {
 	    								baul="AbiertaAbiertaAbierta";
 	    								System.out.println("Conforme vas introduciendo las letras el corazon te va palpitando mas y mas. Sabes que es la correcta. \n"
 	    										+ "Abres el maletin y dentro hay... un hacha. La coges y al momento sientes como si una parte de ti hubiese vuelto.");
+	    								//finalmente si  resolvemos el puzzle conseguiremos el objeto "hacha", necesario para uno de los finales
 	    								hacha=true;
 	    								corduraPersonaje-=20;
 	    							}else {
@@ -73,7 +92,8 @@
 	    					}else {
 	    						System.out.println("Prefieres deja eso sin abrir. Si esta cerrado es por algo.");
 	    					}
-	    					
+	    				//Estos else if los hago para que ne caso de haber resuelto algunos candados o haberlos resuelto, nos salga un texto apropiado
+	    					//lo que hacen es lo mismo que el anterior
 	    				}else if(baul.equals("AbiertaCerradaCerrada")) {
 	    					System.out.println("Te acercas al baul. Vuelves a intentar abrir el candado.");
 	    					System.out.println("Introduce una combinacion\n");
@@ -119,6 +139,7 @@
 	    				}
 	    				break;
 	    			case"4":
+	    				//Vuelta al vestibulo de la primera planta
 	    				System.out.println("Vuelves al vestibulo");
 	    				habitacion1A=false;
 	    				break;
@@ -127,13 +148,15 @@
 	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	    			case"6":
+	    				//Subprograma para salir de la scape room
 	                    salirDelJuego();
 	                default:
+	                	//validacion de errores
 	                	System.out.println("Estas muy cerca del antidoto, no puedes dudar ahora.");
 	                	break;	    				
 	    		}
 	    	}while(habitacion1A);
-	    	
+	    	//devolvemos la variable baul para controlar el puzzle
 	    	return baul;
 	    }
 	    public static String habitacion1B(int saludPersonaje,int corduraPersonaje,String estadoPlanta,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
@@ -972,6 +995,86 @@
 	    	//devolvemos la variable de pieza, para que si la cogemos, la tengamos en el main
 	    	return piezaGolondrina;
 	    }
+	    public static boolean comedor(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha,boolean eventoComedor) {
+	    	//Declaramos las variables de siempre, la de la habitacion y la de movimiento
+	    	Scanner sc = new Scanner(System.in);
+	    	boolean comedor=true;
+	    	String movimientoComedor;
+	    	//Aqui añadimos un if que depndiendo de si el evento dle comedor ha sucedido o no
+	    	//nos mostrara el texto mas adecuado
+	    	if(eventoComedor) {
+	    		System.out.println("Entras en el comedor. No hay nada, esta completamente vacio salvo por un espejo que hay en el centro.");
+	    	}else {
+	    		System.out.println("Entras en el comedor. La habitacion esta repleta de cadaveres y el espejo esta roto, como tú.");
+	    	}
+	    	do{
+	    		//Aqui ponemos el do while junto al switch para el movimiento
+	            System.out.println("\n" +
+	                    "¿A donde quieres ir?\n" +
+	                    "1.- Espejo\n" +
+	                    "2.- Paredes\n" +
+	                    "3.- Puerta \n" +
+	                    "4.- Consultar tu estado\n" +
+	                    "5.- Rendirse(Salir del juego)\n");
+	            movimientoComedor=sc.next();
+	            switch(movimientoComedor) {
+	            	case"1":
+	            		//Aqui hacemos el evento, este sera secundario y se tendra que hacer para conseguir uno de los finales
+	            		//Necesitaremos tener el hacha y que la cordura del personaje sea 20
+	            		//es tan exacto porque los eventos que he puesto te quitan como maximo 80 de cordura
+	            		//con idea de que la cordura solo pueda llegar a 0 si haces todos los eventos.
+	            		if((eventoComedor)&&(hacha)&&(corduraPersonaje==20)) {
+	            			System.out.println("Te acercas al espejo. Cuando ves tu relejo, ves a alguien diferente. Es igual que tu, pero es diferente. \n"
+	            					+ "Tiene un hacha en sus manos y una sonrisa macabra. Detras suya, mucha gente arrollidad, acurrucada, tiemblan del miedo. \n"
+	            					+ "Por instinto sacas el hacha de la mochila, cuando vuelves a mirar al espejo, el reflejo ya no esta quieto, \n"
+	            					+ "esta asesinando a todas las personas, uno por uno, escuchas sus gritos y en cierto modon, te alivian.\n"
+	            					+ "Cuando no queda nadie, el reflejo vuelve al espejo, te mira. En ese momento hace un ataque al espejo, rompiendolo. \n"
+	            					+ "El espejo explota en mil pedazos y cuando te das la vuelta, te das cuenta de que toda la sala esta llena de cadaveres. \n"
+	            					+ "Tu hacha gotea sangre, ya lo tienes claro, no era tu reflejo, eras tu mismo, por fin libre.\n"
+	            					+ "Toca acabar con tu carcelero");
+	            			eventoComedor=false;
+	            			corduraPersonaje-=20;
+	            			//Si has hecho el evento, te mostara un  texto diferente a si lo has hecho ya o si no lo puedes hacer.
+	            		}else if (!eventoComedor) {
+	            			System.out.println("Te acercas al espejo, roto. Por fin te has liberado, por fin estas completo.\n"
+	            					+ "Sabes lo que hay que hacer, y la idea de hacerlo te recomforta.\n"
+	            					+ "Es hora de actuar.");
+	            		}else {
+	            			System.out.println("Te acercas al espejo, ves tu reflejo. En cierto modo te incomoda, pero a su vez te da fuerza a seguir.\n"
+	            					+ "No quieres morir.");
+	            		}
+	            		break;
+	            	case"2":
+	            		//este if-else lo utilizo para mostrar dos textos dependiendo de si el evento ha sucedido o no
+	            		if(eventoComedor) {
+	            		System.out.println("Te acercas a las paredes, no ves nada, estan vacias, pero al acercarte\n"
+	            				+ "notas la presencia de alguien, notas como te empieza a palpitar el corazon. "
+	            				+ "\n No ves a nadie ni a nada, asi que decides alejarte");
+	            		}else {
+	            			System.out.println("Te acercas a las paredes, estan repletas de cadaveres. Sabes cuales son sus nombres, siempre lo ha sabido,"
+	            					+ "\n muchos de ellos te torturaban, otros huian, otros se reian... , ahora todos estan muertos.\n "
+	            					+ "Te resulta hasta cierto punto satisfactorio, pero aun falta una victima mas, no puedes parar.");
+	            		}
+	            		break;
+	            	case"3":
+	            		//Esta sera la opcion para volver a la segunda planta
+	            		System.out.println("Vuelves a la segunda planta");
+	            		comedor=false;
+	            		break;
+	            	case"4":
+	            		//Subprograma para el emnu de estado
+	            		menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	            		break;
+	            	case"5":
+	            		//Subprograma para salir del juego
+	            		salirDelJuego();
+	            	default:
+	            		System.out.println("Te asaltan las dudas, pero no es tiempo de vacilar");
+	            }
+	    	}while(comedor);
+	    	//devolvemos la variable eventoComedor para poder controlar si ha pasado o no
+	    	return eventoComedor;
+	    }
 	    public static void menuEstadoPersonaje( int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 
 	        //Este es el subprograma del menu del personaje, donde podremos elegir si queremos ver nuestra salud/cordura, nuestros movimientos restantes o nuestros objetos
@@ -1060,7 +1163,7 @@
 	        //lista de plantas
 	        boolean escapeRoom=true,primeraPlanta = true,segundaPlanta = false, primeraPlantaOscura = false, segundaPlantaOscura = false;
 	        //resto de booleans
-	        boolean candado = true, habitacionC1Cerrada = false, eventoHabitacionA1 = true, eventoSucedido = false;
+	        boolean candado = true, habitacionC1Cerrada = false, eventoHabitacionA1 = true, eventoSucedido = false,eventoComedor = true;
 	        //La salud y cordura de los personajes si lo he puesot como enteros
 	        int saludPersonaje = 100, corduraPersonaje = 100;
 	        //Finalmente declaramos algunas variables string,utilizadas para el movmiento como para diferentes puzzles o los cambio de parte en la scape room
@@ -1104,6 +1207,9 @@
 	                        //Si la tienes iras al subprograma habitacion 1A, las variables de entrada que pido son para el menu de estado, pasa lo mismo en todos los subprogramas
 	                        //Para ver que pasa en la habitacion 1A, vayase al subprograma habitacion1A
 	                        baul=habitacion1A(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha,baul);
+	                        //este if lo utilizo para que en caso de haber resuelto el puzzle, el usuario consiga el hacha
+	                        //y se grabe en el main y ademas cambio la variable de baul para evitar que se repitan textos
+	                        //en la habitacion 1A
 	                        if(baul.equals("AbiertaAbiertaAbierta")) {
 	                        	hacha=true;
 	                        	corduraPersonaje-=20;
@@ -1204,12 +1310,20 @@
 	    		 	case"1":
 	    		 		//Aqui nos metemos en el subprograma de la biblioteca
 	    		 		piezaGolondrina=biblioteca(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	    		 		break;
 	    		 	case"2":
 	    		 		//Aqui nos metemos en el subprograma del comedor 
-	    		 		//comedor();
+	    		 		eventoComedor=comedor(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha,eventoComedor);
+	    		 		//Aqui hacemos el if para que en caso de que el evento haya sucedido, quitarle la cordura correspondiente
+	    		 		//y que pueda hacer el final verdadero
+	    		 		if(!eventoComedor) {
+	    		 			corduraPersonaje-=20;
+	    		 		}
+	    		 		break;
 	    		 	case"3":
 	    		 		//Aqui nos metemos en el subprograma del despacho
 	    		 		//despacho();
+	    		 		break;
 	    		 	case"4":
 	    		 		//Aqui bajamos a la primera planta
 	    		 		System.out.println("Bajas a la primera planta");
