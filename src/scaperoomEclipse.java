@@ -1075,6 +1075,254 @@
 	    	//devolvemos la variable eventoComedor para poder controlar si ha pasado o no
 	    	return eventoComedor;
 	    }
+	    public static String despacho(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha) {
+	    	//Esta habitacion sera el puzzle para poder entrar en el combate final
+	    	 Scanner sc = new Scanner(System.in);
+	    	 String puzzleResuelto="",respuesta="",puzzlePuerta="";
+	    	 System.out.println("Te acercas a la puerta del despacho, hay un cuadrado en medio,cortado en cuatro huecos iguales. Arriba, un letrero: \n"
+	    	 		+ "'El cuadro representa como la ibertad siempre esta arriba de la trsitez, mientras que luz ilumina la desgracia' \n"
+	    	 		+ "Debajo, hay un mensaje: \n"
+	    	 		+ "'Esta es tu ultima prueba, espero que la resuelvas, solo tendras un intento y como falles...jijiji");
+	    	 //EL puzzle se basara en colocar cuatro piezas (las que hemos ido consiguiendo) de la forma correcta
+	    	 //Como queria hacer que las piezas te fuesen desapareciendo conforme las ponias, he hecho este for,
+	    	 //para ir por los huecos y que las piezas que vayamos poniendo vayan desapareciendo
+	    	 //Primero hago un if para asegurarme de que tiene las 4 piezas, ya que si no las tiene es imposible hacer el puzzle
+	    	 //y si fallamos este puzzle moriremos
+	    	 if((piezaSol)&&(piezaGolondrina)&&(piezaCruz)&&(piezaVirgen)) {
+	    		 System.out.println("Tienes las 4 piezas, puedes hacerlo. ¿Quieres intentarlo? \n"
+	    		 		+ "1.- SI \n"
+	    		 		+ "2.- NO \n");
+	    		 respuesta=sc.next();
+	    		 if(respuesta.equals("1")) {
+	    			 //Luego hago un for, para ir viendo cada cuadrado, y que el jugador vaya poniendo la pieza que le parezca oportuna
+	    			 for(int i=0;i<4;i++) {
+	    				 if(i==0) {
+	    					 do {
+	    						 //hago esto para solo mostrar las piezas que no hayas puesto
+	    						 System.out.println("Que pieza quieres colocar en el cuadrado superior izquierdo");
+	    						 if(piezaSol) {
+	    							 System.out.println(" 1.- Pieza con dibujo de Sol");
+	    						 }	
+	    						 if(piezaCruz) {
+	    							 System.out.println(" 2.- Pieza con dibujo de Cruz");
+	    						 }
+	    						 if(piezaVirgen) {
+	    							 System.out.println(" 3.- Pieza con dibujo de Virgen");
+	    						 }
+	    						 if(piezaGolondrina) {
+	    							 System.out.println(" 4.- Pieza con dibujo de Golondrina");
+	    						 }
+	    						 respuesta=sc.next();
+	    						 //hago un do while para validar los errores
+	    						 if((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4"))) {
+	    							 System.out.println("Respuesta no valida");
+	    						 }
+	    					 }while((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4")));
+	    					 //esto lo haga para luego comprobar si el puzzle es correcto o no
+	    					 puzzlePuerta+=respuesta;
+	    					 //Y estos if para ver que pieza has elegido y quitarlo del siguiente, ademas de añadir una validacion
+	    					 //para impedir que se pongan las mismas piezas en un cubiculo
+	    					 //hago esto mismo en cada cuadrado
+	    					 if(respuesta.equals("1")) {
+	    						 if(piezaSol) {
+	    							 piezaSol=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }
+	    					 }else if(respuesta.equals("2")) {
+	    						 if(piezaCruz) {
+	    							 piezaCruz=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }	    						 
+	    					 }else if(respuesta.equals("3")) {
+	    						 if(piezaVirgen) {
+	    							 piezaVirgen=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }	    						 
+	    					 }else if(respuesta.equals("4")) {
+	    						 if(piezaGolondrina) {
+	    							 piezaGolondrina=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }
+	    					 }
+	    				 }
+	    				 if(i==1) {
+	    					 do {
+	    						 System.out.println("Que pieza quieres colocar en el cuadrado superior derecho");
+	    						 if(piezaSol) {
+	    							 System.out.println(" 1.- Pieza con dibujo de Sol");
+	    						 }	
+	    						 if(piezaCruz) {
+	    							 System.out.println(" 2.- Pieza con dibujo de Cruz");
+	    						 }
+	    						 if(piezaVirgen) {
+	    							 System.out.println(" 3.- Pieza con dibujo de Virgen");
+	    						 }	
+	    						 if(piezaGolondrina) {
+	    							 System.out.println(" 4.- Pieza con dibujo de Golondrina");
+	    						 }
+	    						 respuesta=sc.next();
+	    						 if((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4"))) {
+	    							 System.out.println("Respuesta no valida");
+	    						 }
+	    					 }while((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4")));
+	    					 puzzlePuerta+=respuesta;
+	    					 if(respuesta.equals("1")) {
+	    						 if(piezaSol) {
+	    							 piezaSol=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }
+	    					 }else if(respuesta.equals("2")) {
+	    						 if(piezaCruz) {
+	    							 piezaCruz=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }	    						 
+	    					 }else if(respuesta.equals("3")) {
+	    						 if(piezaVirgen) {
+	    							 piezaVirgen=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }	    						 
+	    					 }else if(respuesta.equals("4")) {
+	    						 if(piezaGolondrina) {
+	    							 piezaGolondrina=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }
+	    					 }
+	    				 }
+	    				 if(i==2) {
+	    					 do {
+	    						 System.out.println("Que pieza quieres colocar en el cuadrado inferior izquierdo");
+	    						 if(piezaSol) {
+	    							 System.out.println(" 1.- Pieza con dibujo de Sol");
+	    						 }	
+	    						 if(piezaCruz) {
+	    							 System.out.println(" 2.- Pieza con dibujo de Cruz");
+	    						 }
+	    						 if(piezaVirgen) {
+	    							 System.out.println(" 3.- Pieza con dibujo de Virgen");
+	    						 }	
+	    						 if(piezaGolondrina) {
+	    							 System.out.println(" 4.- Pieza con dibujo de Golondrina");
+	    						 }
+	    						 respuesta=sc.next();
+	    						 if((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4"))) {
+	    							 System.out.println("Respuesta no valida");
+	    						 }
+	    					 }while((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4")));
+	    					 puzzlePuerta+=respuesta;
+	    					 if(respuesta.equals("1")) {
+	    						 if(piezaSol) {
+	    							 piezaSol=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }
+	    					 }else if(respuesta.equals("2")) {
+	    						 if(piezaCruz) {
+	    							 piezaCruz=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }	    						 
+	    					 }else if(respuesta.equals("3")) {
+	    						 if(piezaVirgen) {
+	    							 piezaVirgen=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }	    						 
+	    					 }else if(respuesta.equals("4")) {
+	    						 if(piezaGolondrina) {
+	    							 piezaGolondrina=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }
+	    					 }
+	    				 }
+	    				 if(i==3) {
+	    					 do {
+	    						 System.out.println("Que pieza quieres colocar en el cuadrado inferior derecho");
+	    						 if(piezaSol) {
+	    							 System.out.println(" 1.- Pieza con dibujo de Sol");
+	    						 }	
+	    						 if(piezaCruz) {
+	    							 System.out.println(" 2.- Pieza con dibujo de Cruz");
+	    						 }
+	    						 if(piezaVirgen) {
+	    							 System.out.println(" 3.- Pieza con dibujo de Virgen");
+	    						 }	
+	    						 if(piezaGolondrina) {
+	    							 System.out.println(" 4.- Pieza con dibujo de Golondrina");
+	    						 }
+	    						 respuesta=sc.next();
+	    						 if((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4"))) {
+	    							 System.out.println("Respuesta no valida");
+	    						 }
+	    					 }while((!respuesta.equals("1"))&&(!respuesta.equals("2"))&&(!respuesta.equals("3"))&&(!respuesta.equals("4")));
+	    					 puzzlePuerta+=respuesta;
+	    					 if(respuesta.equals("1")) {
+	    						 if(piezaSol) {
+	    							 piezaSol=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }
+	    					 }else if(respuesta.equals("2")) {
+	    						 if(piezaCruz) {
+	    							 piezaCruz=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--;
+	    						 }	    						 
+	    					 }else if(respuesta.equals("3")) {
+	    						 if(piezaVirgen) {
+	    							 piezaVirgen=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }	    						 
+	    					 }else if(respuesta.equals("4")) {
+	    						 if(piezaGolondrina) {
+	    							 piezaGolondrina=false;
+	    						 }else {
+	    							 System.out.println("No puedes poner una misma pieza en dos lugares");
+	    							 i--; 
+	    						 }
+	    					 }
+	    				 }
+	    			 }
+	    			 //Finalmente, cuando termina el puzzle, vemos si se ha hehcho correctamente, depndiendo de eso 
+	    			 //pasaran unas cosas u otras
+	    			 if(puzzlePuerta.equals("4132")) {
+	    				 puzzleResuelto="Resuelto";
+	    			 }else {
+	    				 puzzleResuelto="Fallado";
+	    			 }
+	    		 }else {
+	    			 System.out.println("Estas ante la puerta final, no puedes fallar. Decides pensarlo un poco mas, aunque el tiempo corre.");
+	    		 }
+	    	 }else {
+	    		 System.out.println("Aun no tienes las 4 piezas, deben estar por algun lado");
+	    	 }
+	    	 //devolvemos la variable puzzleResuelto para controlar eso
+	    	return puzzleResuelto;
+	    }
 	    public static void menuEstadoPersonaje( int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 
 	        //Este es el subprograma del menu del personaje, donde podremos elegir si queremos ver nuestra salud/cordura, nuestros movimientos restantes o nuestros objetos
@@ -1167,7 +1415,7 @@
 	        //La salud y cordura de los personajes si lo he puesot como enteros
 	        int saludPersonaje = 100, corduraPersonaje = 100;
 	        //Finalmente declaramos algunas variables string,utilizadas para el movmiento como para diferentes puzzles o los cambio de parte en la scape room
-	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "", baul="CerradaCerradaCerrada";
+	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "", baul="CerradaCerradaCerrada",puzzleDespacho="NoIntentado";
 
 	        //En estos print se explica un poco la historia, los separo en tres para que quede mas claro
 	        System.out.println("Te levantas, la cabeza te duele, te cuesta abrir los ojos porque tienes una luz apuntando directamente hacia ti,\n cuando tus ojos se acostumbran puedes discernir donde estas.\n"
@@ -1322,7 +1570,14 @@
 	    		 		break;
 	    		 	case"3":
 	    		 		//Aqui nos metemos en el subprograma del despacho
-	    		 		//despacho();
+	    		 		puzzleDespacho=despacho(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	    		 		if(puzzleDespacho.equals("Resuelto")){
+	    		 			System.out.println("Pones la ultima pieza. Escuchas un click y la puerta empieza a abrirse. \n"
+	    		 					+ "'Por fin, ha llegado la hora de la verdad");
+	    		 			//combateFinal();
+	    		 		}else if(puzzleDespacho.equals("Fallado")) {
+	    		 			//finales();
+	    		 		}
 	    		 		break;
 	    		 	case"4":
 	    		 		//Aqui bajamos a la primera planta
