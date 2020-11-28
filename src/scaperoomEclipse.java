@@ -1,7 +1,7 @@
 	import java.awt.*;
 	import java.util.Scanner;
 	public class scaperoomEclipse {
-	    public static String habitacion1A(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha,String baul){
+	    public static String habitacion1A(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha,String baul){
 	    	//Declaramos las variables de la habitacion, del movimiento y del puzzle de esta sala.
 	    	Scanner sc = new Scanner(System.in);
 	    	boolean habitacion1A=true;
@@ -145,7 +145,7 @@
 	    				break;
 	    			case"5":
 	                    //Aqui utilizo el subprograma que nos permitirá comprobar el estado de nuestro protagonista
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	    			case"6":
 	    				//Subprograma para salir de la scape room
@@ -159,7 +159,7 @@
 	    	//devolvemos la variable baul para controlar el puzzle
 	    	return baul;
 	    }
-	    public static String habitacion1B(int saludPersonaje,int corduraPersonaje,String estadoPlanta,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static String habitacion1B(int saludPersonaje,int corduraPersonaje,int movimientos,String estadoPlanta,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	        Scanner sc=new Scanner(System.in);
 	        //En este subprograma declaro las variables booleans como siempre de los objetos y de la habitacion  para poder salir y entrar
 	        boolean primeroB=true,fertilizante=false,botellaDeCristal=false;
@@ -284,7 +284,7 @@
 	                    break;
 	                    //Aqui, como en todos los menús, ponemos los subprogramas de menús de estados y para salir del juego
 	                case "6":
-	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,movimientos,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "7":
 	                    salirDelJuego();
@@ -296,7 +296,7 @@
 	        }while(primeroB);
 	        return planta;
 	    }
-	    public static boolean habitacion1C(int saludPersonaje,int corduraPersonaje,boolean candado,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static boolean habitacion1C(int saludPersonaje,int corduraPersonaje,int movimientos,boolean candado,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	        Scanner sc=new Scanner(System.in);
 	        boolean primeroC=true;
 	        String movimiento1C,contraseña;
@@ -341,7 +341,7 @@
 	                    break;
 	                //Aqui añadimos las opciones al menu para comprobar el estado del jugador y para salir dlejuego, como en todos los menus
 	                case "4":
-	                    menuEstadoPersonaje( saludPersonaje,corduraPersonaje,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje( saludPersonaje,corduraPersonaje,movimientos,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "5":
 	                    salirDelJuego();
@@ -352,7 +352,7 @@
 	        }while(primeroC);
 	        return primeroC;
 	    }
-	    public static String habitacion1D(String parteScapeRoom,int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static String habitacion1D(String parteScapeRoom,int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	        Scanner sc=new Scanner(System.in);
 	        //Booleans para la habitacion y los objetos que se pueden coger en ellea
 	        boolean primeroD=true,cogerPieza=false;
@@ -411,7 +411,7 @@
 	                    primeroD=false;
 	                    break;
 	                case "5":
-	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,movimientos,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "6":
 	                    salirDelJuego();
@@ -429,7 +429,7 @@
 
 	        return estadoScapeRoom;
 	    }
-	    public static boolean habitacionA1(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean eventoHabitacionA1,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static boolean habitacionA1(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean eventoHabitacionA1,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	    	//Aqui declaro las variables utilizadas para la habitacion y para moverse, esto es lo mismo en todas
 	        boolean nota=false,habitacionA1=true;
 	        String movimientoHabitacionA1;
@@ -479,7 +479,7 @@
 	                    habitacionA1=false;
 	                    break;
 	                case"4":
-	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,movimientos,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case"5":
 	                    salirDelJuego();
@@ -511,7 +511,7 @@
 	        }while(habitacionA1);
 	        return eventoHabitacionA1;
 	    }
-	    public static String  habitacionB1(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,String estadoPlanta,String estadoEscopeta,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static String  habitacionB1(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,String estadoPlanta,String estadoEscopeta,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	    	//Declaracion de variables: las de movimiento y de habitacion
 	        Scanner sc=new Scanner(System.in);
 	        boolean habitacionB1=true;
@@ -564,7 +564,7 @@
 	                            habitacionB1=false;
 	                            break;
 	                        case "4":
-	                            menuEstadoPersonaje(saludPersonaje,corduraPersonaje,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                            menuEstadoPersonaje(saludPersonaje,corduraPersonaje,movimientos,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                            break;
 	                        case"5":
 	                            salirDelJuego();
@@ -615,7 +615,7 @@
 	                            habitacionB1=false;
 	                            break;
 	                        case "4":
-	                            menuEstadoPersonaje(saludPersonaje,corduraPersonaje,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                            menuEstadoPersonaje(saludPersonaje,corduraPersonaje,movimientos,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                            break;
 	                        case"5":
 	                            salirDelJuego();
@@ -708,7 +708,7 @@
 	        }
 	        return evento=true;
 	    }
-	    public static boolean habitacionD1(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static boolean habitacionD1(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	        Scanner sc=new Scanner(System.in);
 	        //Aqui declaramos las variables ademas de la variable evento para controlar el evento y
 	        //la variable contraseña que nos servira para el puzzle
@@ -766,7 +766,7 @@
 	                    System.out.println("Vuelves al vestibulo");
 	                    break;
 	                case"4":
-	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje,corduraPersonaje,movimientos,cuchillo,llave1A,piezaSol,escopeta,piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case"5":
 	                    salirDelJuego();
@@ -786,7 +786,7 @@
 	        //Devolvemos la piezaCruz para que se cambie en el main
 	        return piezaCruz;
 	    }
-	    public static void bibliotecaOscura(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static void bibliotecaOscura(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	        Scanner sc = new Scanner(System.in);
 	        //Declaramos las variables de la habitacion ademas de las variables de
 	        //eleccionFila3 y Libro para buscar una informacion que nos sera necesario para realizar un puzzle.
@@ -856,7 +856,7 @@
 	                    bibliotecaOscura=false;
 	                    break;
 	                case"7":
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case"8":
 	                    salirDelJuego();
@@ -866,7 +866,7 @@
 	        }while(bibliotecaOscura);
 
 	    }
-	    public static boolean comedorOscuro(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static boolean comedorOscuro(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 
 	        Scanner sc = new Scanner(System.in);
 	        //Declaramos las variables
@@ -912,7 +912,7 @@
 	                    comedorOscuro=false;
 	                    break;
 	                case"4":
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case"5":
 	                    salirDelJuego();
@@ -923,7 +923,7 @@
 	        }while(comedorOscuro);
 	        return cizalla;
 	    }	    
-	    public static boolean biblioteca(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static boolean biblioteca(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 	    	//Declaramos las variables de la habitacion y del movimiento
 	    	Scanner sc = new Scanner(System.in);
 	    	boolean biblioteca=true;
@@ -983,7 +983,7 @@
 	            		System.out.println("Vuelves a la segunda planta");
 	            		biblioteca=false;
 	            	case"8":
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	            	case"9":
 	            		salirDelJuego();
@@ -995,7 +995,7 @@
 	    	//devolvemos la variable de pieza, para que si la cogemos, la tengamos en el main
 	    	return piezaGolondrina;
 	    }
-	    public static boolean comedor(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha,boolean eventoComedor) {
+	    public static boolean comedor(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha,boolean eventoComedor) {
 	    	//Declaramos las variables de siempre, la de la habitacion y la de movimiento
 	    	Scanner sc = new Scanner(System.in);
 	    	boolean comedor=true;
@@ -1063,7 +1063,7 @@
 	            		break;
 	            	case"4":
 	            		//Subprograma para el emnu de estado
-	            		menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	            		menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	            		break;
 	            	case"5":
 	            		//Subprograma para salir del juego
@@ -1075,7 +1075,7 @@
 	    	//devolvemos la variable eventoComedor para poder controlar si ha pasado o no
 	    	return eventoComedor;
 	    }
-	    public static String despacho(int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha) {
+	    public static String despacho(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha) {
 	    	//Esta habitacion sera el puzzle para poder entrar en el combate final
 	    	 Scanner sc = new Scanner(System.in);
 	    	 String puzzleResuelto="",respuesta="",puzzlePuerta="";
@@ -1307,7 +1307,7 @@
 	    					 }
 	    				 }
 	    			 }
-	    			 //Finalmente, cuando termina el puzzle, vemos si se ha hehcho correctamente, depndiendo de eso 
+	    			 //Finalmente, cuando termina el puzzle, vemos si se ha hecho correctamente, dependiendo de eso 
 	    			 //pasaran unas cosas u otras
 	    			 if(puzzlePuerta.equals("4132")) {
 	    				 puzzleResuelto="Resuelto";
@@ -1322,8 +1322,126 @@
 	    	 }
 	    	 //devolvemos la variable puzzleResuelto para controlar eso
 	    	return puzzleResuelto;
+	    }	    
+	    public static void combateFinal(int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean escopeta,boolean hacha) {
+	    	//Declaramos las variables que , respectivamente, serviran para:
+	    	//1.-Controlar que no se eligan cosas erroneas
+	    	//2.-Controlar que arma se elige
+	    	//3.-Controlar que final consigue el jugador
+	    	Scanner sc = new Scanner(System.in);
+	    	boolean eleccionFallida=false;
+	    	String eleccionDeArma,finalDeScapeRoom;
+	    	//Añadimos un pequeño texto ambiental y pasamos al combate, el cual será elegir con que arma atacar,
+	    	//dependiendo de si las hemos encontrado o no, de ahi los if
+	    	System.out.println("Traspasas la puerta. Te palpita el corazon. La habitacion es pequeña\n"
+	    			+ "Esta en frente tuya, tiene una especie de mascara, no puedes verle la cara.");
+	    	System.out.println("'Bueno Bueno Bueno, por fin has llegado, veo que has sorteado todas las pruebas que te he puesto ¿Eran faciles verdad? Yo no miento");
+	    	System.out.println("'¡CALLATE! No quiero escuchar mas, he venido a por ese antidoto, aunque tenga que matarte");
+	    	System.out.println("'PERFECTO, porque eso es justo lo que vas a tener que hacer, para conseguir el antidoto vas a tener que matarme y\n"
+	    			+ "hazme caso, no voy a dejar que salgas de aqui");
+	    	System.out.println("Os mirais, expectantes uno de otro, es ahora o nunca, ¿con que vas a atacarle?\n"
+	    			+ "1.- Cuchillo");
+	    	if(escopeta) {
+	    		System.out.println("2.- Escopeta");
+	    	}
+	    	if(hacha) {
+	    		System.out.println("3.- Hacha");
+	    	}
+	    	do {
+	    	eleccionDeArma=sc.next();
+	    	//Aqui en el switch hago lo indicado anteriormente, utilizo el switch para dependiendo del arma que utilize tener un final
+	    	//u otro, cada uno de ellos sera explicado en el subprograma "finales"
+	    	//Luego añadimos un dowhile para validar errores y que en caso de que el personaje se quede sin vida
+	    	//haya otro final
+	    	switch(eleccionDeArma) {
+	    		case"1":
+	    			finalDeScapeRoom="FinalNormal";
+	    			finales(finalDeScapeRoom);
+	    			break;
+	    		case"2":
+	    			if(escopeta) {
+	    				finalDeScapeRoom="FinalBueno";
+	    				finales(finalDeScapeRoom);
+	    			}else {
+	    				eleccionFallida=true;
+	    				System.out.println("Vacilas pero tu enemigo no. Se abalanza sobre ti y te apuñala.");
+	    				saludPersonaje-=50;
+	    			}
+	    			break;
+	    		case"3":
+	    			if((hacha)&&(corduraPersonaje==0)) {
+	    				finalDeScapeRoom="FinalVerdadero";
+	    				finales(finalDeScapeRoom);
+	    			}else if(hacha) {
+	    				eleccionFallida=true;
+	    				System.out.println("Armado con el hacha te dispones a pegarle, pero justo cuando estas a punto de pegarle\n"
+	    						+ "el hacha te empieza a arder, la sueltas y ves como el hacha se deshace en el suelo.\n"
+	    						+ "Escuchas la risa de tu enemigo, justo antes de que te atraviese con un cuchillo.");
+	    				saludPersonaje-=60;
+	    				hacha=false;
+	    			}else {
+	    				eleccionFallida=true;
+	    				System.out.println("Vacilas pero tu enemigo no. Se abalanza sobre ti y te apuñala.");
+	    				saludPersonaje-=50;
+	    			}
+	    			break;
+	    		default:
+    				eleccionFallida=true;
+    				System.out.println("Vacilas pero tu enemigo no. Se abalanza sobre ti y te apuñala.");
+    				saludPersonaje-=50;
+	    		}
+	    	if(saludPersonaje<=0) {
+	    		finalDeScapeRoom="FinalMalo";
+	    		finales(finalDeScapeRoom);
+	    	}else {
+	    		System.out.println("Te consigues zafar, pero otra mas como esas y acabara contigo.");
+	    	}
+	    	}while(eleccionFallida);
+	    	
 	    }
-	    public static void menuEstadoPersonaje( int saludPersonaje,int corduraPersonaje,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
+	    public static void finales(String finalDeScapeRoom) {
+	    	//Aqui hago los diferentes finales dependiendo de lo hecho a lo largo de la scape room
+	    	//ademas añado un system exit para que cuando se printee, se cierre el programa.
+	    	
+	    	if(finalDeScapeRoom.equals("FinalPatetico")) {
+	    		System.out.println("Insertas la ultima pieza. Hace click y por un momento piensas que has acertado, pero en es momento un pincho que sale de la puerta\n"
+	    				+ "te atraviesa la frente, caes, muerto. Escuchas una risa, sabes que es de el, sabes que te considera patetico, y lo eres.");	    		
+	    	}else if(finalDeScapeRoom.equals("FinalMalo")) {
+	    		System.out.println("Cuando te atraviesa con el cuchillo, todo se para. Ese golpe ha sido mortal. Te mira, las mascara se le cae."
+	    				+ "\n Tus ojos se van oscureciendo y lo ultimo que ves es su cara, eres tu.");
+	    	}else if(finalDeScapeRoom.equals("FinalNormal")) {
+	    		System.out.println("Decidido, agarras el cuchillo, vas directo a por el. No se mueve, lo atraviesas con el cuchillo, directamente en el corazon. \n"
+	    				+ "Cuando miras, el cuchillo le ha atravesado como si fuera un fantasma, el se rie.\n"
+	    				+ "'No puedes matarme, soy tu y tu eres yo, y asi sera para siempre. Y ahora, vuelve a dormir'\n"
+	    				+ "Te atraviesa con un puñal el corazon, matandote. Todo se apaga, no entiendes nada.\n"
+	    				+ "Oscuridad"
+	    				+ "\n Vuelves a abrir los ojos, estas atado en una camilla, no sabes donde estas, no recuerdas nada, a tu lado un cuchillo y una carta.");
+	    	}else if(finalDeScapeRoom.equals("FinalBueno")) {
+	    		System.out.println("Antes de que decidas,se abalanza sobre ti. Consigues esquivarlo, y justo cuando esta expuesto aprovechas y sacas la escopeta.\n"
+	    				+ "Disparas y lo atraviesas. Cae al suelo, sangrando por todos lados. Podrias acabar con el, pero hay cosas mas importantes."
+	    				+ "\n Te giras y miras al antidoto. Lo coges y te lo tomas, sin pensarlo. Notas como te empieza a doler la cabeza, escuchas una risa\n"
+	    				+ "'¿De verdad pensabas que iba a dejar que te escaparas? Ese antidoto no vale, vas a quedarte aqui siempre, y yo me encargare de ello.\n"
+	    				+ "Con una furia incontrolable, te acercas y le rebanas el cuello, cae y tu con el, el veneno ya ha afectado a la mayoria de tu cuerpo\n"
+	    				+ "Tus ojos se cierran, al menos el dolor se ha acabado.");
+	    	}else if(finalDeScapeRoom.equals("FinalVerdadero")) {
+	    		System.out.println("Sabes a quien tienes enfrente, y sabes lo que tienes que hacer. En cierto modo te excita, sacas el hacha poco a poco\n"
+	    				+ "y notas como empieza a temblar ligeramente. Tu corazon bombea mas y mas sangre,mas cuando hueles el miedo de tu victima. Vas hacia el,\n"
+	    				+ "arrastrando el hacha por el suelo. Intenta atacarte pero sus ataques se atraviesan sin hacerte daño, el es tu y tu eres el. \n"
+	    				+ "Pero ahora tu tienes el control.\n"
+	    				+ "Levantas el hacha y la dejas caer sobre su cabeza,atravesandola.\n"
+	    				+ "Cuando lo haces te sientes liberado, sacas el hacha de su craneo, su cuerpo cae.\n"
+	    				+ "Con decision, te diriges a la salida. Demasiado tiempo dormido."
+	    				+ "\n Es hora de seguir la caza");
+	    	}else if(finalDeScapeRoom.equals("FinalVeneno")) {
+	    		System.out.println("Estas andando cuando notas un pinchazo en el pecho, empiezas a no sentir los brazos, ni las piernas.\n"
+	    				+ "El veneno se ha esparcido demasiado por tu cuerpo, has tardado demasiado.\n"
+	    				+ "Cierras los ojos, dispuesto a morir.\n\n "
+	    				+ "Vuelves a abrir los ojos, estas atado en una camilla, no sabes donde estas, no recuerdas nada, a tu lado un cuchillo y una carta.");
+	    	}
+	    	System.exit(0);
+	    	
+	    }
+	    public static void menuEstadoPersonaje( int saludPersonaje,int corduraPersonaje,int movimientos,boolean cuchillo,boolean llave1A,boolean piezaSol,boolean escopeta,boolean piezaCruz,boolean cizalla,boolean piezaGolondrina,boolean piezaVirgen,boolean hacha){
 
 	        //Este es el subprograma del menu del personaje, donde podremos elegir si queremos ver nuestra salud/cordura, nuestros movimientos restantes o nuestros objetos
 	        Scanner sc=new Scanner(System.in);
@@ -1347,7 +1465,7 @@
 	                case "2":
 	                    //Aqui nos mostrara cuantos movimientos nos quedan
 	                    System.out.println("\n--------MOVIMIENTOS RESTANTES--------\n" +
-	                            "Aquí mostrara el tiempo o movimientos que te quedan\n");
+	                            "Te quedan"+movimientos);
 	                    break;
 	                case "3":
 	                    //Aqui ira el subprograma que nos llevara a los objetos, al ser tantod he decidio hacerlo asi
@@ -1413,9 +1531,9 @@
 	        //resto de booleans
 	        boolean candado = true, habitacionC1Cerrada = false, eventoHabitacionA1 = true, eventoSucedido = false,eventoComedor = true;
 	        //La salud y cordura de los personajes si lo he puesot como enteros
-	        int saludPersonaje = 100, corduraPersonaje = 100;
+	        int saludPersonaje = 100, corduraPersonaje = 100,movimientos=0;
 	        //Finalmente declaramos algunas variables string,utilizadas para el movmiento como para diferentes puzzles o los cambio de parte en la scape room
-	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "", baul="CerradaCerradaCerrada",puzzleDespacho="NoIntentado";
+	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "", baul="CerradaCerradaCerrada",puzzleDespacho="NoIntentado",finalDeScapeRoom="";
 
 	        //En estos print se explica un poco la historia, los separo en tres para que quede mas claro
 	        System.out.println("Te levantas, la cabeza te duele, te cuesta abrir los ojos porque tienes una luz apuntando directamente hacia ti,\n cuando tus ojos se acostumbran puedes discernir donde estas.\n"
@@ -1430,7 +1548,7 @@
 	        //Luego veremos como en el main se pondran los menus de las plantas, mientras que cada habitacion sera un subprograma
 
 	        //Utilizamos la variable candado para evitar tener que repetir el puzzle de la habitacion 1C cada vez que entremos
-	        candado = habitacion1C(saludPersonaje, corduraPersonaje, candado, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	        candado = habitacion1C(saludPersonaje, corduraPersonaje,movimientos, candado, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	        //Aqui el usuario consigue salir de la habitacion 1C y entramos en el bucle de la primera planta(utilizo el do while porque el bucle tiene que pasar como minimo una vez
 	    do{
 	    	 while (primeraPlanta){
@@ -1454,7 +1572,7 @@
 
 	                        //Si la tienes iras al subprograma habitacion 1A, las variables de entrada que pido son para el menu de estado, pasa lo mismo en todos los subprogramas
 	                        //Para ver que pasa en la habitacion 1A, vayase al subprograma habitacion1A
-	                        baul=habitacion1A(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha,baul);
+	                        baul=habitacion1A(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha,baul);
 	                        //este if lo utilizo para que en caso de haber resuelto el puzzle, el usuario consiga el hacha
 	                        //y se grabe en el main y ademas cambio la variable de baul para evitar que se repitan textos
 	                        //en la habitacion 1A
@@ -1472,19 +1590,19 @@
 	                case "2":
 	                    //Aqui entramos en la habitacion 1B, aqui haremos un puzzle que puede tener tres estados asi que decidí hacer una string para identificar esos casos
 	                    //Ya que este puzzle influenciara en una habitacion posterior(Lo dejo mas claro en el subprograma correspondiente)
-	                    estadoPlanta = habitacion1B(saludPersonaje, corduraPersonaje, estadoPlanta, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    estadoPlanta = habitacion1B(saludPersonaje, corduraPersonaje,movimientos, estadoPlanta, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "3":
 	                    //Aqui volvemos a la habitacion 1C, en la que empezamos
 	                    System.out.println("Vuelves a la habitacion en la que despertaste");
-	                    habitacion1C(saludPersonaje, corduraPersonaje, candado, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    habitacion1C(saludPersonaje, corduraPersonaje,movimientos, candado, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "4":
 	                    //Aqui entramos en la habitacion 1D, que sera donde podamos hacer el cambio de planta (esto es explicado por la historia)
 	                    //Utilizo la variable parteScapeRoom para indicar ese cambio de parte y poder controlarlo y que los eventos se hagan correctamente
 	                    //Ademas me permite impedir que se consigan objetos infinitos
 
-	                    parteScapeRoom = habitacion1D(parteScapeRoom, saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    parteScapeRoom = habitacion1D(parteScapeRoom, saludPersonaje,movimientos, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 
 	                    //Este if lo hago para evitar que el cambio de planta se haga siempre que entremos en la habitacion,
 	                    //asi el jugador puede entrar y salir de la habitacion que si no se produce el evento no cambiara de planta
@@ -1532,15 +1650,16 @@
 	                    break;
 	                case "7":
 	                    //Aqui utilizo el subprograma que nos permitirá comprobar el estado de nuestro protagonista
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "8":
 	                    //Este subprograma esta hecho para permitir salir del juego en cualquier momento al usuario
 	                    salirDelJuego();
 	                default:
 	                	//validacion de errores
-	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
+	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");	                    
 	            }
+	            movimientos++;
 	        }
 	    	 while(segundaPlanta) {
 	    		 //Aqui mostramos el menu de la segunda planta, la ultima de la scape room
@@ -1557,11 +1676,11 @@
 	    		 switch(movimientoSegundaPlanta) {
 	    		 	case"1":
 	    		 		//Aqui nos metemos en el subprograma de la biblioteca
-	    		 		piezaGolondrina=biblioteca(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	    		 		piezaGolondrina=biblioteca(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	    		 		break;
 	    		 	case"2":
 	    		 		//Aqui nos metemos en el subprograma del comedor 
-	    		 		eventoComedor=comedor(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha,eventoComedor);
+	    		 		eventoComedor=comedor(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha,eventoComedor);
 	    		 		//Aqui hacemos el if para que en caso de que el evento haya sucedido, quitarle la cordura correspondiente
 	    		 		//y que pueda hacer el final verdadero
 	    		 		if(!eventoComedor) {
@@ -1570,13 +1689,14 @@
 	    		 		break;
 	    		 	case"3":
 	    		 		//Aqui nos metemos en el subprograma del despacho
-	    		 		puzzleDespacho=despacho(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	    		 		puzzleDespacho=despacho(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	    		 		if(puzzleDespacho.equals("Resuelto")){
 	    		 			System.out.println("Pones la ultima pieza. Escuchas un click y la puerta empieza a abrirse. \n"
 	    		 					+ "'Por fin, ha llegado la hora de la verdad");
 	    		 			//combateFinal();
 	    		 		}else if(puzzleDespacho.equals("Fallado")) {
-	    		 			//finales();
+	    		 			finalDeScapeRoom="FinalPatetico";
+	    		 			finales(finalDeScapeRoom);
 	    		 		}
 	    		 		break;
 	    		 	case"4":
@@ -1587,7 +1707,7 @@
 	    		 		break;
 	    		 	case"5":
 	    		 		//subprograma para mostrar el estado del personaje(su salud, cordura, movimientos y objetos)
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	    		 	case"6":
 	                    //Este subprograma esta hecho para permitir salir del juego en cualquier momento al usuario
@@ -1597,6 +1717,7 @@
 	                	System.out.println("No sabes que hacer, estas indiceso, pero el tiempo corre en tu contra.\n"
 	                			+ "Cuanto mas tiempo pierdas ahora,menos tiempo te quedara para salvarte.");
 	    		 }
+	    		 movimientos++;
 	    		 
 	    	 }
 	    	 
@@ -1623,7 +1744,7 @@
 	                	//Esta es la habitacion A1, nos devolvera el valor del evento para saber si ha pasado
 	                	//Si ha pasado haremos los cambios en la salud o en la cordura,respectivamente,
 	                	//asi al hacerlo en el main ya se graba en el resto del programa
-	                    eventoHabitacionA1 = habitacionA1(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz, eventoHabitacionA1,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    eventoHabitacionA1 = habitacionA1(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz, eventoHabitacionA1,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    if ((!eventoHabitacionA1) && (!eventoSucedido)) {
 	                        if (corduraPersonaje <= 80) {
 	                            corduraPersonaje -= 20;
@@ -1638,7 +1759,7 @@
 	                	//Aqui viene la habitacion de la escopeta, utilizo la variable del estado para controlar 
 	                	//si la hemos cogido o no, al igual que antes, para que esta comprobacion no se repita
 	                	//cambio el estado de la escopeta a "NoSePuedeCoger", impidiendo que se repita el evento
-	                    estadoEscopeta = habitacionB1(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, estadoPlanta, estadoEscopeta, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    estadoEscopeta = habitacionB1(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, estadoPlanta, estadoEscopeta, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    //Añadimos los if para controlar el evento que ha pasado
 	                    //si no hemos podido coger la escopeta nos quitara vida
 	                    //si lo hemos cogido, escopeta se volvera true
@@ -1662,7 +1783,7 @@
 	                    break;
 	                case "4":
 	                	//Aqui añadimos la habitacion para conseguir la piezaCruz, necesaria para hacer el puzzle final
-	                    piezaCruz = habitacionD1(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    piezaCruz = habitacionD1(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "5":
 	                	//Aqui añadimos un evento para conseguir la llave de la habitacion 1A
@@ -1703,13 +1824,14 @@
 	                            "Entre medias ves un dibujo de una puerta, esta dibujado con sangre y tiene algo escrito 'Nos vemos en el otro lado jiji'.");
 	                    break;
 	                case "7":
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case "8":
 	                    salirDelJuego();
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
+	            movimientos++;
 	            //Aqui añadimos un if para que en caso de haber cogido la llave y la pieza cambiemos de plano otra vez,volviendo al otro plano
 	            if((piezaCruz)&&(llave1A)){
 	                parteScapeRoom="Parte2";
@@ -1734,12 +1856,12 @@
 	            switch (movimientoSegundaPlantaOscura){
 	                case"1":
 	                	//Aqui ponemos el subprograma para entrar en la biblioteca "oscura"
-	                    bibliotecaOscura(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    bibliotecaOscura(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case"2":
 	                	//Aqui ponemos el subprograma para entrar en el comedorOscuro
 	                	//Igualamos a la cizalla para que en caso de tenerla se nos ponga como true
-	                    cizalla=comedorOscuro(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    cizalla=comedorOscuro(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case"3":
 	                	//Para volver a la primer planta "oscura"
@@ -1748,15 +1870,17 @@
 	                    primeraPlantaOscura=true;
 	                    break;
 	                case"4":
-	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
 	                case"5":
 	                    salirDelJuego();
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
+	            movimientos++;
 	        }
 	    }while(escapeRoom) ;
+	    System.out.println(movimientos);
 	    }
 	}
 
