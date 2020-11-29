@@ -348,6 +348,7 @@
 	                default:
 	                    //Aquí ponemos la opción para validar
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
+	                    break;
 	            }
 	        }while(primeroC);
 	        return primeroC;
@@ -558,6 +559,7 @@
 	                            }else{
 	                                System.out.println("Te acercas al estante, no parece que haya nada más importante.La planta sigue carbonizada.");
 	                            }
+	                            break;
 	                        //Aqui hago las mismas opciones de las habitaciones, para poder salir de la habitacion, del juego y poder salir del juego    
 	                        case "3":	       
 	                            System.out.println("Vuelves al vestibulo");
@@ -982,6 +984,7 @@
 	            	case"7":
 	            		System.out.println("Vuelves a la segunda planta");
 	            		biblioteca=false;
+	            		break;
 	            	case"8":
 	                    menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	                    break;
@@ -1080,7 +1083,7 @@
 	    	 Scanner sc = new Scanner(System.in);
 	    	 String puzzleResuelto="",respuesta="",puzzlePuerta="";
 	    	 System.out.println("Te acercas a la puerta del despacho, hay un cuadrado en medio,cortado en cuatro huecos iguales. Arriba, un letrero: \n"
-	    	 		+ "'El cuadro representa como la ibertad siempre esta arriba de la trsitez, mientras que luz ilumina la desgracia' \n"
+	    	 		+ "'El cuadro representa como la libertad siempre esta arriba de la tristeza, mientras que luz ilumina la desgracia' \n"
 	    	 		+ "Debajo, hay un mensaje: \n"
 	    	 		+ "'Esta es tu ultima prueba, espero que la resuelvas, solo tendras un intento y como falles...jijiji");
 	    	 //EL puzzle se basara en colocar cuatro piezas (las que hemos ido consiguiendo) de la forma correcta
@@ -1668,7 +1671,7 @@
 		                    "¿A donde quieres ir?\n" +
 		                    "1.- Biblioteca\n" +
 		                    "2.- Comedor\n"+ 
-		                    "3.- Despacho" +
+		                    "3.- Despacho\n" +
 		                    "4.- Bajar a la primera planta \n" +
 		                    "5.- Consultar tu estado\n" +
 		                    "6.- Rendirse(Salir del juego)\n");
@@ -1693,6 +1696,7 @@
 	    		 		if(puzzleDespacho.equals("Resuelto")){
 	    		 			System.out.println("Pones la ultima pieza. Escuchas un click y la puerta empieza a abrirse. \n"
 	    		 					+ "'Por fin, ha llegado la hora de la verdad");
+	    				    System.out.println(movimientos);
 	    		 			combateFinal(saludPersonaje, corduraPersonaje,movimientos, cuchillo,escopeta,hacha);
 	    		 		}else if(puzzleDespacho.equals("Fallado")) {
 	    		 			finalDeScapeRoom="FinalPatetico";
@@ -1880,7 +1884,6 @@
 	            movimientos++;
 	        }
 	    }while(escapeRoom) ;
-	    System.out.println(movimientos);
 	    }
 	}
 
