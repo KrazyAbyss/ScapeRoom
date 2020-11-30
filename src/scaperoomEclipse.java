@@ -1468,7 +1468,7 @@
 	                case "2":
 	                    //Aqui nos mostrara cuantos movimientos nos quedan
 	                    System.out.println("\n--------MOVIMIENTOS RESTANTES--------\n" +
-	                            "Te quedan"+movimientos);
+	                            "Te quedan "+movimientos+". Debes darte prisa.");
 	                    break;
 	                case "3":
 	                    //Aqui ira el subprograma que nos llevara a los objetos, al ser tantod he decidio hacerlo asi
@@ -1533,8 +1533,8 @@
 	        boolean escapeRoom=true,primeraPlanta = true,segundaPlanta = false, primeraPlantaOscura = false, segundaPlantaOscura = false;
 	        //resto de booleans
 	        boolean candado = true, habitacionC1Cerrada = false, eventoHabitacionA1 = true, eventoSucedido = false,eventoComedor = true;
-	        //La salud y cordura de los personajes si lo he puesot como enteros
-	        int saludPersonaje = 100, corduraPersonaje = 100,movimientos=0;
+	        //La salud y cordura de los personajes si lo he puesto como enteros
+	        int saludPersonaje = 100, corduraPersonaje = 100,movimientos=50;
 	        //Finalmente declaramos algunas variables string,utilizadas para el movmiento como para diferentes puzzles o los cambio de parte en la scape room
 	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "", baul="CerradaCerradaCerrada",puzzleDespacho="NoIntentado",finalDeScapeRoom="";
 
@@ -1662,7 +1662,13 @@
 	                	//validacion de errores
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");	                    
 	            }
-	            movimientos++;
+	            //Añadimos la variable movimietnos que sera el contador del numero de movimientos que nos quedan,
+	            //añadimos el if para que en caso de que nos quedemos a 0, se acabe la scapeRoom.
+	            movimientos--;
+	            if(movimientos==0) {
+	            	finalDeScapeRoom="FinalVeneno";
+	            	finales(finalDeScapeRoom);
+	            }
 	        }
 	    	 while(segundaPlanta) {
 	    		 //Aqui mostramos el menu de la segunda planta, la ultima de la scape room
@@ -1721,7 +1727,11 @@
 	                	System.out.println("No sabes que hacer, estas indiceso, pero el tiempo corre en tu contra.\n"
 	                			+ "Cuanto mas tiempo pierdas ahora,menos tiempo te quedara para salvarte.");
 	    		 }
-	    		 movimientos++;
+	    		 movimientos--;
+	    		 if(movimientos==0) {
+		            	finalDeScapeRoom="FinalVeneno";
+		            	finales(finalDeScapeRoom);
+	    		 }
 	    		 
 	    	 }
 	    	 
@@ -1835,7 +1845,11 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
-	            movimientos++;
+	            movimientos--;
+	            if(movimientos==0) {
+	            	finalDeScapeRoom="FinalVeneno";
+	            	finales(finalDeScapeRoom);
+	            }
 	            //Aqui añadimos un if para que en caso de haber cogido la llave y la pieza cambiemos de plano otra vez,volviendo al otro plano
 	            if((piezaCruz)&&(llave1A)){
 	                parteScapeRoom="Parte2";
@@ -1881,7 +1895,11 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
-	            movimientos++;
+	            movimientos--;
+	            if(movimientos==0) {
+	            	finalDeScapeRoom="FinalVeneno";
+	            	finales(finalDeScapeRoom);
+	            }
 	        }
 	    }while(escapeRoom) ;
 	    }
