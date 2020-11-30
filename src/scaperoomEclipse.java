@@ -23,11 +23,11 @@
 	    		switch(movimientoHabitacion1A) {
 	    			case"1":
 	    				//Aqui añadimos un poco de texto para la historia
-	    				System.out.println("Te acercas al escritorio. La luz apunta a un papel , ha sido una pluma, parece una carta: \n\n\n"
+	    				System.out.println("Te acercas al escritorio. La luz apunta a un papel , a su lado una pluma, parece una carta: \n\n\n"
 	    						+ "'Espero que en algun momento leas esta carta. Sabes que esta carta va para ti\n"
 	    						+ "Que te hayas escapado es culpa mia, yo confie en ti y ahora estas haciendo estragos con todo, \n"
 	    						+ "parece increible que una persona que se presupone tan lista como yo haya sido engañado por un enfermo mental,\n"
-	    						+ "pero ambos sabemos que eres mas que eso, sobre todo tu, los otros te tiene miedo, el unico que te planta cara es Peter \n"
+	    						+ "pero ambos sabemos que eres mas que eso, sobre todo tu, los otros te tienen miedo, el unico que te planta cara es Peter \n"
 	    						+ "pero hace tiempo que no hablo con el y temo que hayas acabado con el.\n"
 	    						+ "No voy a estar para descubrirlo, voy a acabar con esto antes de que vengas, porque vendras,\n"
 	    						+ "tengo lo mas preciado para ti, lo voy a guardar para que no puedas tenerlo nunca.\n"
@@ -67,14 +67,14 @@
 	    						//Como antes, si lo resolvemos la variable baul cambia
 	    						if(candadoNumerico.equals("0923")) {
 	    							baul="AbiertaAbiertaCerrada";
-	    							System.out.println("Al introducir la combinacion el candado se abre, al fin, desvelando lo qeu hay dentro del baul... \n"
+	    							System.out.println("Al introducir la combinacion el candado se abre, al fin, desvelando lo que hay dentro del baul... \n"
 	    									+ "Otro maletin. Dentro de la caja hay otro maletin protegido por una cerradura electronica,\n"
-	    									+ "definitivamente alguien queria mantener en secreo lo qeu sea que haya aqui.");
+	    									+ "definitivamente alguien queria mantener en secreto lo que sea que haya aqui.\n");
 	    							System.out.println("Introduce la contraseña\n");
 	    							candadoPalabra=sc.next();
 	    							candadoPalabra=candadoPalabra.toLowerCase();
 	    							//El ultimo candado es uno de letras, tenemos que introducir una palabra en concreto 
-	    							//utilizo el meteodo ".toLowerCase()"para cambiar lo que introduzcamos a minuscula
+	    							//utilizo el metodo ".toLowerCase()"para cambiar lo que introduzcamos a minuscula
 	    							//asi no hay problemas y se introduce la clave correcta lo dara por valido
 	    							if(candadoPalabra.equals("culpable")) {
 	    								baul="AbiertaAbiertaAbierta";
@@ -100,9 +100,9 @@
     						candadoNumerico=sc.next();
     						if(candadoNumerico.equals("0923")) {
     							baul="AbiertaAbiertaCerrada";
-    							System.out.println("Al introducir la combinacion el candado se abre, al fin, desvelando lo qeu hay dentro del baul... \n"
+    							System.out.println("Al introducir la combinacion el candado se abre, al fin, desvelando lo que hay dentro del baul... \n"
     									+ "Otro maletin. Dentro de la caja hay otro maletin protegido por una cerradura electronica,\n"
-    									+ "definitivamente alguien queria mantener en secreo lo qeu sea que haya aqui.");
+    									+ "definitivamente alguien queria mantener en secreto lo que sea que haya aqui.");
     							System.out.println("Introduce la contraseña");
     							candadoPalabra=sc.next();
     							candadoPalabra=candadoPalabra.toLowerCase();
@@ -168,7 +168,7 @@
 	        //Creo una nueva variable que sea igual que la variable estadoPlanta para diferenciar la variable del subprograma con la del programa principal
 	        planta=estadoPlanta;
 	        //texto ambiental
-	        System.out.println("Entras en la habitacion 1B. Al entrar lo primero que ves son varias mesas, unas estan llenas de documentos, otras unas maquinas raras y otra tiene una especie de planta gigante.\n " +
+	        System.out.println("Entras en la habitacion 1B. Al entrar lo primero que ves son varias mesas, unas estan llenas de documentos,\n otras unas maquinas raras y otra tiene una especie de planta gigante.\n " +
 	                "Además de eso ves una estantería llena de botellas y líquidos.");
 
 	        do {
@@ -202,7 +202,7 @@
 	                        System.out.println("Te acercas a la planta, es una especie bastante rara, a su lado hay un posit que pone: \n" +
 	                                "'Recuerda que tienes que echarle el fertilizante a la planta, debería haber algún bote vacio en la estanteria,cuando lo tengas utiliza el instrumental para hacerlo.\n" +
 	                                "P.D: Si no te acuerdas de la combinacion, deberia estar en los documentos del laboratorio.\n" +
-	                                "P.D.D: Cuando lo hagas no tardes mucho en utilizarlo, esta combinacion es muy inestable'");
+	                                "P.D.D: Cuando lo hagas no tardes mucho en utilizarlo, esta combinacion es muy inestable'\n");
 	                        //Si conseguimos hacer el fertilizante se lo daremos a la planta y se volvera al estado "Fertilizada"
 	                        if(fertilizante){
 	                            System.out.println("Coges el fertilizante y lo utilizas en la planta, esta crece exponencialmente hasta tener una presencia magnífica. No parece que vaya a pasar nada más.");
@@ -222,7 +222,7 @@
 	                    }
 	                    break;
 	                case "3":
-	                    System.out.println("Te acercas al instrumental del laboratorio. Ves numerosos utensilios punzantes, cortantes, perforantes..., gasas, vendas sin usar y unos extraños dispensadores de diferentes liquidos, estan marcados con etiquetas");
+	                    System.out.println("Te acercas al instrumental del laboratorio. Ves numerosos utensilios punzantes, cortantes, perforantes..., gasas, vendas sin usar y\n unos extraños dispensadores de diferentes liquidos, estan marcados con etiquetas");
 	                    //Aqui hago este if para evitar que el puzzle se repita si:
 	                    //Lo has intentado y has fallado
 	                    //Si ya lo has hecho(el puzzle o el fertilizante)
@@ -240,11 +240,11 @@
 	                        }
 	                        //Este if anidado lo utilizaod para comprobar si la combinacion es correcta o no
 	                        if(combinacion.equals("2213")){
-	                            System.out.println("Echas el último líquido y aunque en un primer momento parece que va a explotar, finalmente para y se estabiliza,. No te haces muchas preguntas y supones que lo has hecho bien.");
+	                            System.out.println("Echas el último líquido y aunque en un primer momento parece que va a explotar, finalmente para y se estabiliza.\n No te haces muchas preguntas y supones que lo has hecho bien.");
 	                            fertilizante=true;
 	                        }else{
 	                            //Si lo fallas no podras volver a intentar el puzzle, para eso el estado 'ImposibleDeFertilizar'
-	                            System.out.println("Echas el ultimo liquido en la combinacion. Esta adquiere un color marron, empieza a echar espuma y comienza a temblar. Lo tiras contra la pared antes de que te reviente en la mano.\n" +
+	                            System.out.println("Echas el ultimo liquido en la combinacion. Esta adquiere un color marron, empieza a echar espuma y comienza a temblar.\n Lo tiras contra la pared antes de que te reviente en la mano.\n" +
 	                                    " 'Definitivamente, la química no es lo mio'.");
 	                            planta="ImposibleDeFertilizar";
 	                            botellaDeCristal=false;
@@ -274,7 +274,7 @@
 	                    //Esto lo hago ante la imposibilidad de devolver más de un objeto
 	                    primeroB=false;
 	                    if(fertilizante){
-	                        System.out.println("Ves que el fertilizante que adquiere un color marron, empieza a echar espuma y comienza a temblar. Lo tiras contra la pared antes de que te reviente en la mano.\n" +
+	                        System.out.println("Ves que el fertilizante que adquiere un color marron, empieza a echar espuma y comienza a temblar.\n Lo tiras contra la pared antes de que te reviente en la mano.\n" +
 	                                " 'Pues si que era inestable la mezcla'");
 	                        planta="ImposibleDeFertilizar";
 	                        botellaDeCristal=false;
@@ -313,7 +313,7 @@
 	            //Aqui hago un switch para hacer las diferentes opciones, añadiendo el default para validar opciones
 	            switch (movimiento1C){
 	                case "1":
-	                    System.out.println("LLegas a la mesa, hay varios documentos de poco importancia menos uno que destaca por encima del resto, parece el fichero de un paciente de un psiquiátrico, destaca porque esta enteramente tachado y solo se ven las siguientes letras BPLEAULC,no ves nada más interesante");
+	                    System.out.println("LLegas a la mesa, hay varios documentos de poco importancia menos uno que destaca por encima del resto, parece el fichero de un paciente de un psiquiátrico,\n destaca porque esta enteramente tachado y solo se ven las siguientes letras BPLEAULC,no ves nada más interesante");
 	                    break;
 	                case "2":
 	                    //Aqui hay un if para que en caso de que averigue la contraseña haga el cambio de habitacion, pero si no se quede en la misma
@@ -336,7 +336,7 @@
 	                    break;
 	                case "3":
 	                    System.out.print("Te acercas al tablon donde puedes ver un folleto del psiquiatrico donde habla de lo bueno que es y los increibles resultados que han tenido con 'casos sin retorno' como los enfermos mentales." +
-	                            "\n A su lado te ecuentras un extracto de un periodico que habla sobre un asesinato multiple que ocurrio en dicho psiatrico, " +
+	                            "\n A su lado te ecuentras un extracto de un periodico que habla sobre un asesinato multiple que ocurrio en dicho psiquiatrico, " +
 	                            "\n 'uno de los pacientes se escapo y mato a todos los pacientes y trabajadores que habia...'no se puede leer más");
 	                    break;
 	                //Aqui añadimos las opciones al menu para comprobar el estado del jugador y para salir dlejuego, como en todos los menus
@@ -382,7 +382,7 @@
 	                case "2":
 	                    System.out.println("Te acercas a la mesa, hay muchos documentos.\n" +
 	                            " Te centras en uno, es un documento medico de uno de los pacientes, por lo que lees tiene personalidad múltiple y cometio un gran numero de asesinatos.\n" +
-	                            " El nombre de las personalidades no sale, estan tachadas con...'¿sangre?.'");
+	                            " Los nombres de las personalidades no salen, estan tachadas con...'¿sangre?.'");
 	                    break;
 	                case "3":
 	                    //Aqui utilizo lavariable de la parte de la scape room para  controlar los eventos que pasan
@@ -390,7 +390,7 @@
 	                        System.out.println("Te acercas al armario, al abrirlo ves varias herramientas quirúrgicas, vendas, pastillas..., pero te destaca una pieza de madera que tiene grabado un sol.\n" +
 	                                "¿La coges?\n"+
 	                                "1.-SI\n" +
-	                                "2.-NO");
+	                                "2.-NO\n");
 	                        respuesta=sc.next();
 	                        if(respuesta.equals("1")){
 	                            //Aqui utilizo la variable cogerPieza para que asi no puedas coger infinitas piezas, ademas de que luego lo utilizo para hacer el cambio de parte en la scape room
@@ -450,12 +450,12 @@
 	                    "2.- Ventilador\n" +
 	                    "3.- Puerta \n" +
 	                    "4.- Consultar tu estado\n" +
-	                    "5.- Rendirse(Salir del juego)\n");
+	                    "5.- Rendirse(Salir del juego)\n\n");
 	            movimientoHabitacionA1 = sc.next();
 	            //Un switch aqui para controlar el movimiento,al igual que en todas las habitaciones
 	            switch (movimientoHabitacionA1) {
 	                case "1":
-	                    System.out.println("Te acercas a la mesa, ves varios documentos y entre ellos una nota:\n" +
+	                    System.out.println("\nTe acercas a la mesa, ves varios documentos y entre ellos una nota:\n" +
 	                            "'Tomas, el paciente nº3 se ha vuelto a escapar y ha cambiado la contraseña de la habitacion D1, sabes su\n " +
 	                            "problema con las adivinanzas. Hemos intentado que nos diga la respuesta pero solo repite una cosa:\n" +
 	                            "3 U 10. Si tienes idea de que puede significar dimelo.\n" +
@@ -538,10 +538,10 @@
 	                    switch (movimientoHabitacionB1){
 	                    //Aqui metemos texto ambiental y tambien una pista para un puzzle futuro
 	                        case "1":
-	                            System.out.println("Te acercas a la mesa, no ves nada importante, pero al acercarte ves ordenador encendido, el teclado esta manchado de sangre y algunas teclas estan saltadas. Hay algo escrito en la pantalla, parece un correo sin enviar: \n" +
-	                                    "'Necesitamos ayuda. Se ha escapado con todos, me he encontrado antes un cadaver que tenia escrito\n" +
-	                                    " 'el sol siempre a la derecha y arriba, para que alumbre', no se lo que signficia, se lo ha grabado a un paciente en el torso." +
-	                                    "Viene para aca, le escucho, sabe que estoy aqui, no me queda mucho tiempo, por favor, manden reeeeeeeeeeeeejkfeqbujbf fewujb ...'\n" +
+	                            System.out.println("Te acercas a la mesa, no ves nada importante, pero al acercarte ves ordenador encendido, el teclado esta manchado de sangre y algunas teclas estan saltadas.\n Hay algo escrito en la pantalla, parece un correo sin enviar: \n" +
+	                                    "\n\n'Necesitamos ayuda. Se ha escapado,esta cazandolos a todos, me he encontrado antes un cadaver y en su pecho habia escrito algo\n" +
+	                                    " 'el sol siempre a la derecha y arriba, para que alumbre', no se lo que significa." +
+	                                    "\n Viene, le escucho, sabe que estoy aqui, no me queda mucho tiempo, por favor, manden reeeeeeeeeeeeejkfeqbujbf fewujb ...'\n\n" +
 	                                    " el resto de palabras son teclas aleatorias, como si alguien hubiese aporreado el teclado'");
 	                            System.out.println("'Que cojones hay aqui, que es lo que anda suelto'");
 	                            break;
@@ -549,7 +549,7 @@
 	                        //Esta escopeta nos servira para uno de los finales.    
 	                        case "2":
 	                            if(estadoEscopeta.equals("NoCogida")) {
-	                                System.out.println("Te acercas al estante,la planta esta carbonizada y no parece que  vaya a hacer nada. Puedes acercate a la escopeta. La coges. Ahora te sientes mas seguro.Tiene una bala, parece que solo tiene un uso");
+	                                System.out.println("Te acercas al estante,la planta esta carbonizada y no parece que  vaya a hacer nada. Puedes acercate a la escopeta. La coges.\n Ahora te sientes mas seguro.Tiene una bala, parece que solo tiene un uso");
 	                                //Aqui lo que hago es cambiar el estado de la escopeta y la variable escopeta
 	                                //La primera para evitar que puedes cogar varias escopetas
 	                                //La segunda para que te salga en el inventario en la misma habitacion
@@ -591,10 +591,10 @@
 	                    movimientoHabitacionB1=sc.next();
 	                    switch (movimientoHabitacionB1){
 	                        case "1":
-	                            System.out.println("Te acercas a la mesa, no ves nada importante, pero al acercarte ves ordenador encendido, el teclado esta manchado de sangre y algunas teclas estan saltadas. Hay algo escrito en la pantalla, parece un correo sin enviar: \n" +
-	                                    "'Necesitamos ayuda. Se ha escapado con todos, me he encontrado antes un cadaver que tenia escrito\n" +
-	                                    " 'el sol siempre a la derecha y arriba, para que alumbre', no se lo que signficia, se lo ha grabado a un paciente en el torso." +
-	                                    "Viene para aca, le escucho, sabe que estoy aqui, no me queda mucho tiempo, por favor, manden reeeeeeeeeeeeejkfeqbujbf fewujb ...'\n" +
+	                            System.out.println("Te acercas a la mesa, no ves nada importante, pero al acercarte ves ordenador encendido, el teclado esta manchado de sangre y algunas teclas estan saltadas.\n Hay algo escrito en la pantalla, parece un correo sin enviar: \n" +
+	                                    "'Necesitamos ayuda. Se ha escapado, esta cazando a todos, me he encontrado antes un cadaver que tenia grabado en su pecho aglo como:\n" +
+	                                    " 'el sol siempre a la derecha y arriba, para que alumbre', no se lo que significa." +
+	                                    "Viene, le escucho, sabe que estoy aqui, no me queda mucho tiempo, por favor, manden reeeeeeeeeeeeejkfeqbujbf fewujb ...'\n" +
 	                                    " el resto de palabras son teclas aleatorias, como si alguien hubiese aporreado el teclado'");
 	                            System.out.println("'Que cojones hay aqui, que es lo que anda suelto'");
 	                            break;
@@ -602,14 +602,14 @@
 	                        	//Al intentar ir a coger la escopeta,la planta nos atacara, nos impedira el paso y no podremos coger la escopeta
 	                        	//Quitarnos vida solo lo hara una vez, por ello cambio el estado de la escopeta, para que no se repita el evento.
 	                            if(estadoEscopeta.equals("NoCogida")) {
-	                                System.out.println("Te intentas acercar al estante, en un primer momento la planta no se mueve pero al intentar aproximarte a la escopeta, la planta se abre descubriendo una boca mosntruosa que va hacia ti.\n" +
+	                                System.out.println("Te intentas acercar al estante, en un primer momento la planta no se mueve pero al intentar aproximarte a la escopeta,\n la planta se abre descubriendo una boca mosntruosa que va hacia ti.\n" +
 	                                        "Te muerde fuerte el torso, aun así con el cuchillo coges liberarte y huir, la planta vuelve a cerrarse.\n" +
 	                                        "No parece que sea posible alcanzar la escopeta");
 	                                estadoEscopeta="IntentodeCogida";
 	                                saludPersonaje-=20;
 	                                break;
 	                            }else{
-	                                System.out.println("Te gustaria coger la escopeta, pero esta la planta en medio. Antes has tenido suerte zafandote, pero es bastante probable que si lo vuelves a intentar, mueras." +
+	                                System.out.println("Te gustaria coger la escopeta, pero esta la planta en medio.\n Antes has tenido suerte zafandote, pero es bastante probable que si lo vuelves a intentar, mueras." +
 	                                        "'Este sitio es de locos'");
 	                            }
 	                        case "3":
@@ -752,7 +752,7 @@
 	                       contraseña=sc.next();
 	                       contraseña=contraseña.toLowerCase();
 	                       if(contraseña.equals("cometa")){
-	                           System.out.println("La cerradura emite una luz verde y se abre,permitiendote coger la pieza.");
+	                           System.out.println("La cerradura emite una luz verde y se abre,permitiendote coger la pieza.\n");
 	                           piezaCruz=true;
 	                           evento=true;
 	                       }else{
@@ -794,7 +794,7 @@
 	        //eleccionFila3 y Libro para buscar una informacion que nos sera necesario para realizar un puzzle.
 	        boolean bibliotecaOscura=true;
 	        String movimientoBibliotecaOscura,eleccionFila3,libro;
-	        System.out.println("Entras a la biblioteca. Cuando entras ves como lo que se supone que era un mostrador esta completamente destrozado, hay marchas de cortes." +
+	        System.out.println("Entras a la biblioteca. Cuando entras ves como lo que se supone que era un mostrador esta completamente destrozado, hay marcas de cortes." +
 	                "\n Hay varias filas de libros, 5 en concreto, y un rastro de sangre que va desde el mostrador a la fila 2.");
 	        do {
 	        	//Hacemos el bucle de la habitacion y un switch para controlar el movimiento
@@ -840,7 +840,7 @@
 	                            System.out.println("Echas un vistazo por encima pero no ves nada util, decides continuar");
 	                        }
 	                    }else{
-	                        System.out.println("Miras un poco por encima pero no ves nada interasnte. Decides continuar tu camino.");
+	                        System.out.println("Miras un poco por encima pero no ves nada interesante. Decides continuar tu camino.");
 	                    }
 	                    break;
 	                case"4":
@@ -930,7 +930,7 @@
 	    	Scanner sc = new Scanner(System.in);
 	    	boolean biblioteca=true;
 	    	String movimientoBiblioteca;
-	    	System.out.println("Entras en la biblioteca, puedes ver varias filas de libros. Al final ves que hay una zona bloqueda por una especie de mampara.\n");	    		
+	    	System.out.println("Entras en la biblioteca, puedes ver varias filas de libros. Al final ves que hay una zona bloqueada por una especie de mampara.\n");	    		
 	    	do {
 	    		//Hacemos el bucle de la habitacion y un switch para controlar el movimiento
 	            System.out.println("\n" +
@@ -1028,7 +1028,7 @@
 	            		//con idea de que la cordura solo pueda llegar a 0 si haces todos los eventos.
 	            		if((eventoComedor)&&(hacha)&&(corduraPersonaje==20)) {
 	            			System.out.println("Te acercas al espejo. Cuando ves tu relejo, ves a alguien diferente. Es igual que tu, pero es diferente. \n"
-	            					+ "Tiene un hacha en sus manos y una sonrisa macabra. Detras suya, mucha gente arrollidad, acurrucada, tiemblan del miedo. \n"
+	            					+ "Tiene un hacha en sus manos y una sonrisa macabra. Detras suya, mucha gente arrodillada, acurrucada, tiemblan del miedo. \n"
 	            					+ "Por instinto sacas el hacha de la mochila, cuando vuelves a mirar al espejo, el reflejo ya no esta quieto, \n"
 	            					+ "esta asesinando a todas las personas, uno por uno, escuchas sus gritos y en cierto modon, te alivian.\n"
 	            					+ "Cuando no queda nadie, el reflejo vuelve al espejo, te mira. En ese momento hace un ataque al espejo, rompiendolo. \n"
@@ -1065,7 +1065,7 @@
 	            		comedor=false;
 	            		break;
 	            	case"4":
-	            		//Subprograma para el emnu de estado
+	            		//Subprograma para el menu de estado
 	            		menuEstadoPersonaje(saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	            		break;
 	            	case"5":
@@ -1337,11 +1337,11 @@
 	    	//Añadimos un pequeño texto ambiental y pasamos al combate, el cual será elegir con que arma atacar,
 	    	//dependiendo de si las hemos encontrado o no, de ahi los if
 	    	System.out.println("Traspasas la puerta. Te palpita el corazon. La habitacion es pequeña\n"
-	    			+ "Esta en frente tuya, tiene una especie de mascara, no puedes verle la cara.");
-	    	System.out.println("'Bueno Bueno Bueno, por fin has llegado, veo que has sorteado todas las pruebas que te he puesto ¿Eran faciles verdad? Yo no miento");
-	    	System.out.println("'¡CALLATE! No quiero escuchar mas, he venido a por ese antidoto, aunque tenga que matarte");
-	    	System.out.println("'PERFECTO, porque eso es justo lo que vas a tener que hacer, para conseguir el antidoto vas a tener que matarme y\n"
-	    			+ "hazme caso, no voy a dejar que salgas de aqui");
+	    			+ "Esta en frente tuya, tiene una especie de mascara, no puedes verle la cara.\n");
+	    	System.out.println("-'Bueno Bueno Bueno, por fin has llegado, veo que has sorteado todas las pruebas que te he puesto ¿Eran faciles verdad? Yo no miento'\n");
+	    	System.out.println("-'¡CALLATE! No quiero escuchar mas, he venido a por ese antidoto, aunque tenga que matarte'\n");
+	    	System.out.println("-'PERFECTO, porque eso es justo lo que vas a tener que hacer, para conseguir el antidoto vas a tener que matarme y\n"
+	    			+ "hazme caso, no voy a dejar que salgas de aqui'\n");
 	    	System.out.println("Os mirais, expectantes uno de otro, es ahora o nunca, ¿con que vas a atacarle?\n"
 	    			+ "1.- Cuchillo");
 	    	if(escopeta) {
@@ -1407,39 +1407,51 @@
 	    	//ademas añado un system exit para que cuando se printee, se cierre el programa.
 	    	
 	    	if(finalDeScapeRoom.equals("FinalPatetico")) {
-	    		System.out.println("Insertas la ultima pieza. Hace click y por un momento piensas que has acertado, pero en es momento un pincho que sale de la puerta\n"
-	    				+ "te atraviesa la frente, caes, muerto. Escuchas una risa, sabes que es de el, sabes que te considera patetico, y lo eres.");	    		
+	    		System.out.println("\n\n\nInsertas la ultima pieza. Hace click y por un momento piensas que has acertado, pero en es momento un pincho que sale de la puerta\n"
+	    				+ "te atraviesa la frente, caes, muerto. Escuchas una risa, sabes que es de el, sabes que te considera patetico, y lo eres.\n");
+	    		System.out.println("Te daria la enhorabuena por pasarte la scape room pero has conseguido el final patetico, el peor.\n"
+	    				+ "Hay otros 4 finales esperandote, te animo a que los intentes sacar <3");
 	    	}else if(finalDeScapeRoom.equals("FinalMalo")) {
-	    		System.out.println("Cuando te atraviesa con el cuchillo, todo se para. Ese golpe ha sido mortal. Te mira, las mascara se le cae."
-	    				+ "\n Tus ojos se van oscureciendo y lo ultimo que ves es su cara, eres tu.");
+	    		System.out.println("\n\n\nCuando te atraviesa con el cuchillo, todo se para. Ese golpe ha sido mortal. Te mira, las mascara se le cae."
+	    				+ "\n Tus ojos se van oscureciendo y lo ultimo que ves es su cara, eres tu.\n");
+	    		System.out.println("ENHORABUENA, has superado la scape room. Has conseguido el final malo, te invito a rejugar la scape room.\n"
+	    				+ "Hay otros 4 finales <3");
 	    	}else if(finalDeScapeRoom.equals("FinalNormal")) {
-	    		System.out.println("Decidido, agarras el cuchillo, vas directo a por el. No se mueve, lo atraviesas con el cuchillo, directamente en el corazon. \n"
+	    		System.out.println("\n\n\nDecidido, agarras el cuchillo, vas directo a por el. No se mueve, lo atraviesas con el cuchillo, directamente en el corazon. \n"
 	    				+ "Cuando miras, el cuchillo le ha atravesado como si fuera un fantasma, el se rie.\n"
-	    				+ "'No puedes matarme, soy tu y tu eres yo, y asi sera para siempre. Y ahora, vuelve a dormir'\n"
+	    				+ "-'No puedes matarme, soy tu y tu eres yo, y asi sera para siempre. Y ahora, vuelve a dormir'\n"
 	    				+ "Te atraviesa con un puñal el corazon, matandote. Todo se apaga, no entiendes nada.\n"
 	    				+ "Oscuridad"
-	    				+ "\n Vuelves a abrir los ojos, estas atado en una camilla, no sabes donde estas, no recuerdas nada, a tu lado un cuchillo y una carta.");
+	    				+ "\n Vuelves a abrir los ojos, estas atado en una camilla, no sabes donde estas, no recuerdas nada, a tu lado un cuchillo y una carta.\n");
+	    		System.out.println("ENHORABUENA, has superado la scape room. Has conseguido el final normal, te invito a rejugar la scape room.\n"
+	    				+ "Hay otros 4 finales <3");
 	    	}else if(finalDeScapeRoom.equals("FinalBueno")) {
-	    		System.out.println("Antes de que decidas,se abalanza sobre ti. Consigues esquivarlo, y justo cuando esta expuesto aprovechas y sacas la escopeta.\n"
+	    		System.out.println("\n\n\nAntes de que decidas,se abalanza sobre ti. Consigues esquivarlo, y justo cuando esta expuesto aprovechas y sacas la escopeta.\n"
 	    				+ "Disparas y lo atraviesas. Cae al suelo, sangrando por todos lados. Podrias acabar con el, pero hay cosas mas importantes."
 	    				+ "\n Te giras y miras al antidoto. Lo coges y te lo tomas, sin pensarlo. Notas como te empieza a doler la cabeza, escuchas una risa\n"
 	    				+ "'¿De verdad pensabas que iba a dejar que te escaparas? Ese antidoto no vale, vas a quedarte aqui siempre, y yo me encargare de ello.\n"
 	    				+ "Con una furia incontrolable, te acercas y le rebanas el cuello, cae y tu con el, el veneno ya ha afectado a la mayoria de tu cuerpo\n"
-	    				+ "Tus ojos se cierran, al menos el dolor se ha acabado.");
+	    				+ "Tus ojos se cierran, al menos el dolor se ha acabado.\n");
+	    		System.out.println("ENHORABUENA, has superado la scape room. Has conseguido el final bueno, te invito a rejugar la scape room.\n"
+	    				+ "Hay otros 4 finales <3");
 	    	}else if(finalDeScapeRoom.equals("FinalVerdadero")) {
-	    		System.out.println("Sabes a quien tienes enfrente, y sabes lo que tienes que hacer. En cierto modo te excita, sacas el hacha poco a poco\n"
+	    		System.out.println("\n\n\nSabes a quien tienes enfrente, y sabes lo que tienes que hacer. En cierto modo te excita, sacas el hacha poco a poco\n"
 	    				+ "y notas como empieza a temblar ligeramente. Tu corazon bombea mas y mas sangre,mas cuando hueles el miedo de tu victima. Vas hacia el,\n"
-	    				+ "arrastrando el hacha por el suelo. Intenta atacarte pero sus ataques se atraviesan sin hacerte daño, el es tu y tu eres el. \n"
+	    				+ "arrastrando el hacha por el suelo. Intenta atacarte pero sus ataques te atraviesan sin hacerte daño, el es tu y tu eres el. \n"
 	    				+ "Pero ahora tu tienes el control.\n"
 	    				+ "Levantas el hacha y la dejas caer sobre su cabeza,atravesandola.\n"
 	    				+ "Cuando lo haces te sientes liberado, sacas el hacha de su craneo, su cuerpo cae.\n"
 	    				+ "Con decision, te diriges a la salida. Demasiado tiempo dormido."
-	    				+ "\n Es hora de seguir la caza");
+	    				+ "\n Es hora de seguir la caza\n");
+	    		System.out.println("ENHORABUENA, has superado la scape room. Has conseguido el final verdadero, te invito a rejugar la scape room.\n"
+	    				+ "Hay otros 4 finales <3");
 	    	}else if(finalDeScapeRoom.equals("FinalVeneno")) {
-	    		System.out.println("Estas andando cuando notas un pinchazo en el pecho, empiezas a no sentir los brazos, ni las piernas.\n"
+	    		System.out.println("\n\n\nEstas andando cuando notas un pinchazo en el pecho, empiezas a no sentir los brazos, ni las piernas.\n"
 	    				+ "El veneno se ha esparcido demasiado por tu cuerpo, has tardado demasiado.\n"
 	    				+ "Cierras los ojos, dispuesto a morir.\n\n "
-	    				+ "Vuelves a abrir los ojos, estas atado en una camilla, no sabes donde estas, no recuerdas nada, a tu lado un cuchillo y una carta.");
+	    				+ "Vuelves a abrir los ojos, estas atado en una camilla, no sabes donde estas, no recuerdas nada, a tu lado un cuchillo y una carta.\n");
+	    		System.out.println("Pues te daria la enhorabuena, pero es que te has quedado sin movimientos y has muerto. Te invito a rejugar la scape room \n"
+	    				+ "para sacarte los 5 finales de verdad que hay (ten cuidado con los movimientos esta vez)");
 	    	}
 	    	System.exit(0);
 	    	
@@ -1534,7 +1546,7 @@
 	        //resto de booleans
 	        boolean candado = true, habitacionC1Cerrada = false, eventoHabitacionA1 = true, eventoSucedido = false,eventoComedor = true;
 	        //La salud y cordura de los personajes si lo he puesto como enteros
-	        int saludPersonaje = 100, corduraPersonaje = 100,movimientos=50;
+	        int saludPersonaje = 100, corduraPersonaje = 100,movimientos=30;
 	        //Finalmente declaramos algunas variables string,utilizadas para el movmiento como para diferentes puzzles o los cambio de parte en la scape room
 	        String movimientoPrimeraPlanta,movimientoSegundaPlanta, movimientoPrimeraPlantaOscura,movimientoSegundaPlantaOscura, estadoPlanta = "NoFertilizada", parteScapeRoom = "Parte0", estadoEscopeta = "NoCogida", cogerLlave = "", baul="CerradaCerradaCerrada",puzzleDespacho="NoIntentado",finalDeScapeRoom="";
 
@@ -1605,7 +1617,7 @@
 	                    //Utilizo la variable parteScapeRoom para indicar ese cambio de parte y poder controlarlo y que los eventos se hagan correctamente
 	                    //Ademas me permite impedir que se consigan objetos infinitos
 
-	                    parteScapeRoom = habitacion1D(parteScapeRoom, saludPersonaje,movimientos, corduraPersonaje, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
+	                    parteScapeRoom = habitacion1D(parteScapeRoom, saludPersonaje, corduraPersonaje,movimientos, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 
 	                    //Este if lo hago para evitar que el cambio de planta se haga siempre que entremos en la habitacion,
 	                    //asi el jugador puede entrar y salir de la habitacion que si no se produce el evento no cambiara de planta
@@ -1645,6 +1657,8 @@
 	                	//que favorezca el dinamismo de la scape room.
 	                	}else if(piezaVirgen){
 	                		System.out.println("Subes a la segunda planta");
+	                		primeraPlanta=false;
+	                		segundaPlanta=true;
 	                	}
 	                	//Este else esta hecho para que durante el principio de la scape room no podamos subir a la segunda planta.
 	                	else {
@@ -1662,7 +1676,7 @@
 	                	//validacion de errores
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");	                    
 	            }
-	            //Añadimos la variable movimietnos que sera el contador del numero de movimientos que nos quedan,
+	            //Añadimos la variable movimientos que sera el contador del numero de movimientos que nos quedan,
 	            //añadimos el if para que en caso de que nos quedemos a 0, se acabe la scapeRoom.
 	            movimientos--;
 	            if(movimientos==0) {
@@ -1727,6 +1741,8 @@
 	                	System.out.println("No sabes que hacer, estas indiceso, pero el tiempo corre en tu contra.\n"
 	                			+ "Cuanto mas tiempo pierdas ahora,menos tiempo te quedara para salvarte.");
 	    		 }
+	    		  //Añadimos la variable movimientos que sera el contador del numero de movimientos que nos quedan,
+		          //añadimos el if para que en caso de que nos quedemos a 0, se acabe la scapeRoom.
 	    		 movimientos--;
 	    		 if(movimientos==0) {
 		            	finalDeScapeRoom="FinalVeneno";
@@ -1845,6 +1861,8 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
+	            //Añadimos la variable movimientos que sera el contador del numero de movimientos que nos quedan,
+	            //añadimos el if para que en caso de que nos quedemos a 0, se acabe la scapeRoom.
 	            movimientos--;
 	            if(movimientos==0) {
 	            	finalDeScapeRoom="FinalVeneno";
@@ -1856,7 +1874,7 @@
 	                primeraPlantaOscura=false;
 	                primeraPlanta=true;
 	                System.out.println("Te empieza a doler la cabeza otra vez.Un dolor insoportable,solo que esta vez no cesa.No cesa hasta que te desmayas.\n" +
-	                        "Cuando te despiertas estas otra vez en la primera planta, en la qu empezaste. No sabes que ha pasado,pero ahora las escaleras estan abiertas.\n" +
+	                        "Cuando te despiertas estas otra vez en la primera planta, en la que empezaste. No sabes que ha pasado,pero ahora las escaleras estan abiertas.\n" +
 	                        "'Estoy cerca de el, lo presiento'.");
 	                parteScapeRoom="Parte2";
 	            }
@@ -1895,6 +1913,8 @@
 	                default:
 	                    System.out.println("Opción incorrecta, el tiempo corre en tu contra, no puedes fallar");
 	            }
+	            //Añadimos la variable movimientos que sera el contador del numero de movimientos que nos quedan,
+	            //añadimos el if para que en caso de que nos quedemos a 0, se acabe la scapeRoom.
 	            movimientos--;
 	            if(movimientos==0) {
 	            	finalDeScapeRoom="FinalVeneno";
