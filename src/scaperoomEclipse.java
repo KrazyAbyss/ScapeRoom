@@ -1563,6 +1563,7 @@
 	        //Luego veremos como en el main se pondran los menus de las plantas, mientras que cada habitacion sera un subprograma
 
 	        //Utilizamos la variable candado para evitar tener que repetir el puzzle de la habitacion 1C cada vez que entremos
+	        System.out.println("Tienes "+saludPersonaje+" de salud y tienes "+movimientos+" movimientos");
 	        candado = habitacion1C(saludPersonaje, corduraPersonaje,movimientos, candado, cuchillo, llave1A, piezaSol, escopeta, piezaCruz,cizalla,piezaGolondrina,piezaVirgen,hacha);
 	        //Aqui el usuario consigue salir de la habitacion 1C y entramos en el bucle de la primera planta(utilizo el do while porque el bucle tiene que pasar como minimo una vez
 	    do{
